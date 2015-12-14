@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/msg_person_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@color/deep_black" >
+
+        <TextView
+            android:id="@+id/msgperson_title_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:maxWidth="60dip"
+            android:singleLine="true"
+            android:text="Left"
+            android:textColor="#ffffffff"
+            android:textSize="14dip"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/msgperson_title_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxWidth="120dip"
+            android:singleLine="true"
+            android:text="Center"
+            android:textColor="#ffffffff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/msgperson_title_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:maxWidth="60dip"
+            android:singleLine="true"
+            android:text="Right"
+            android:textColor="#ffffffff"
+            android:textSize="14dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/msgperson_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_weight="1.0"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="5dp"
+        android:scrollbars="none"
+        android:transcriptMode="alwaysScroll" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:orientation="horizontal"
+        android:paddingLeft="8dip"
+         >
+
+        <ImageView
+            android:id="@+id/msgperson_commonmsg_add_btn"
+            android:layout_width="25dip"
+            android:layout_height="25dip"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitXY"
+            android:layout_marginRight="8dip"
+            android:src="@drawable/ic_menu_add" />
+
+        <EditText
+            android:id="@+id/msgperson_sendmessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:focusable="true"
+            android:maxLines="4"
+            android:textColor="#ff212121"
+            android:textCursorDrawable="@drawable/edittext_cursor" >
+        </EditText>
+
+        <View
+            android:layout_width="10dip"
+            android:layout_height="1dip" />
+
+        <Button
+            android:id="@+id/msgperson_send_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dip"
+            android:background="@drawable/xa"
+            android:text="发送"
+            android:textSize="14dip" >
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/msgperson_tools_bar"
+        android:layout_width="match_parent"
+        android:layout_height="181dip"
+        android:background="#fff1f1f1"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcc1c1c1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/msgperson_tools_first_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:background="@drawable/msg_toolsbar_image"
+                    android:duplicateParentState="true"
+                    android:padding="8dip"
+                    android:src="@drawable/ic_menu_moreoverflow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:text="@string/msgperson_common_message_text"
+                    android:textColor="#ff212121"
+                    android:textSize="12dip" >
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/msgperson_tools_second_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:background="@drawable/msg_toolsbar_image"
+                    android:duplicateParentState="true"
+                    android:padding="8dip"
+                    android:src="@drawable/ic_menu_mark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:text="@string/msgperson_auto_message_text"
+                    android:textColor="#ff212121"
+                    android:textSize="12dip" >
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/msgperson_tools_third_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/msgperson_tools_fourth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

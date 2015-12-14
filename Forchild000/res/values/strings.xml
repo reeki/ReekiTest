@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">微笑天天</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Activity Lable -->
+    <string name="about_activity_lable">关于</string>
+    <string name="accident_display_activity_lable">意外消息</string>
+    <string name="accident_history_activity_lable">意外消息</string>
+    <string name="add_friend_activity_lable">好友</string>
+    <string name="add_seniors_activity_lable">添加被关注人</string>
+    <string name="auto_message_display_activity_lable">自动消息</string>
+    <string name="auto_message_edit_activity_lable">编辑自动消息</string>
+    <string name="change_password_activity_lable">修改密码</string>
+    <string name="change_senior_phone_activity_lable">修改被关注人手机号码</string>
+    <string name="change_child_phone_activity_lable">修改手机号码</string>
+    <string name="common_setup_activity_lable">通用设置</string>
+    <string name="emergence_info_activity_lable">编辑紧急消息</string>
+    <string name="emergence_notice_activity_lable">紧急通知</string>
+    <string name="history_activity_lable">历史</string>
+    <string name="Login_activity_lable">登录</string>
+    <string name="main_activity_lable">微笑天天</string>
+    <string name="message_activity_lable">消息</string>
+    <string name="message_history_activity_lable">消息历史</string>
+    <string name="person_info_activity_lable">个人信息</string>
+    <string name="register_senior_activity_lable">注册被关注人</string>
+    <string name="register_user_activity_lable">注册</string>
+    <string name="senior_info_activity_lable">被关注人信息</string>
+    <string name="senior_info_mod_activity_lable">被关注人信息修改</string>
+    <string name="setup_activity_lable">设置</string>
+    <string name="sos_activity_lable">求救消息</string>
+    <string name="warning_activity_lable">警告</string>
+    <string name="setup_lable">设置</string>
+    <string name="emergency_veterinary_lable">紧急医疗卡</string>
+    <string name="common_message_display_lable">常用消息</string>
+    <string name="parent_track_activity_lable">轨迹查询</string>
+
+    <!-- 公共 -->
+    <string name="cancel">取消</string>
+    <string name="reg_title">注册页面</string>
+    <string name="input_error">输入有误，请重新输入</string>
+    <string name="input_nothing_error">请正确输入</string>
+    <string name="input_long_error">输入字符过长，请正确输入</string>
+    <string name="input_short_error">输入字符过短，请正确输入</string>
+    <string name="logout">注销</string>
+    <string name="store">保存</string>
+    <string name="sure">确定</string>
+    <string name="unknown">unknown</string>
+    <string name="no_name">匿名</string>
+    <string name="no_info">未知</string>
+    <string name="time_delay_text">秒后可再次点击</string>
+    <string name="time_second">秒</string>
+    <string name="agree_to">同意</string>
+    <string name="refuse_to">拒绝</string>
+    <string name="refresh_text">刷新</string>
+
+    <!-- Login activity -->
+    <string name="login">账号</string>
+    <string name="password">密码</string>
+    <string name="remember_password">记住密码</string>
+    <string name="auto_login">自动登录</string>
+    <string name="register">注册</string>
+    <string name="login_botton">登录</string>
+    <string name="login_dis">请输入用户名</string>
+    <string name="password_dis">请输入用户密码</string>
+    <string name="login_success">登陆成功</string>
+    <string name="login_info_error">账户无匹配，请确认登陆码与父母码是否正确</string>
+    <string name="login_incredible_error">出错了！请重试。</string>
+    <string name="login_net_error">网络连接故障，请检查网络连接情况.</string>
+    <string name="login_forget_password">忘记密码?</string>
+    <string name="login_dialog_netwait_title">登录</string>
+    <string name="login_dialog_netwait_content">正在登录，请稍后</string>
+
+    <!-- Main activity -->
+    <string name="history_text">紧急\n医疗\n卡</string>
+    <string name="setup_text">设置</string>
+    <string name="standing">站立</string>
+    <string name="walking">步行</string>
+    <string name="idle">静止</string>
+    <string name="running">跑步</string>
+    <string name="message">消息</string>
+    <string name="sport_detection_content">运动\n检测</string>
+    <string name="sport_detection_off">运动\n检测\n未开</string>
+    <string name="emergency_call_not_start">紧急电话功能未开启</string>
+    <string name="emergency_call_title">紧急电话</string>
+    <string name="message_history">消息</string>
+    <string name="btn_page_0">状态</string>
+    <string name="btn_page_1">消息</string>
+    <string name="btn_page_2">运动</string>
+    <string name="btn_page_3">设置</string>
+    
+    <!-- Parent State Activity -->
+    <string name="parent_rightbtn_text">轨迹</string>
+    <string name="parent_centerbtn_text">未知关注人</string>
+    <string name="parent_noselectsenior_error">请正确选择被关注人后再尝试</string>
+    <string name="parent_state_run">运动状态:跑步</string>
+    <string name="parent_state_walk">运动状态:走步</string>
+    <string name="parent_state_stand">运动状态:静止</string>
+    <string name="parent_state_unknown">运动状态:未知</string>
+    
+    <!-- Parent Track Activity -->
+    <string name="parenttrack_rightbtn_text">日历</string>
+    <string name="parenttrack_leftbtn_text">刷新</string>
+    <string name="parenttrack_noseniorinfo_error">关注人信息接收失败</string>
+
+    <!-- Message Activity -->
+    <string name="message_common_msg_0">别忘了吃药</string>
+    <string name="message_common_msg_1">天凉了，多穿点</string>
+    <string name="message_common_msg_2">可能会下雨，出门带雨伞</string>
+    <string name="message_edit_msg">编辑消息</string>
+    <string name="message_send">发送</string>
+    <string name="message_history_text">历史消息查看</string>
+    <string name="message_circle_msg">设置自动消息</string>
+    <string name="message_edit_short_error">请输入信息内容</string>
+    <string name="message_automsg_button">自动消息</string>
+    <string name="msg_centertitle_text">消息</string>
+
+    <!-- History Activity -->
+    <string name="history_runtime_title">跑步时间</string>
+    <string name="history_standtime_title">静止时间</string>
+    <string name="history_walktime_title">走步时间</string>
+    <string name="history_abnormity_title">异常消息</string>
+    <string name="history_calorie_title">能量消耗</string>
+    <string name="history_message_title">今日推送</string>
+    <string name="history_choice_date">选择日期</string>
+    <string name="history_date_title">日期</string>
+    <string name="history_calorie_unit">卡路里</string>
+    <string name="history_message_unit">条消息</string>
+    <string name="history_senior_choice_error">请正确选择被关注人</string>
+    <string name="history_gettrack_text">轨迹查询</string>
+    <string name="history_suggest_much">运动量过大</string>
+    <string name="history_suggest_less">需继续运动</string>
+    <string name="history_suggest_normal">运动量适中</string>
+    <string name="history_sport_time">运动时间</string>
+    <string name="history_refresh_nouser_error">请正确选择用户后重试</string>
+    
+
+    <!-- Emergency Veterinary Activity -->
+    <string name="emergency_veterinary_title">紧急医疗卡</string>
+
+    <!-- Setup Activity -->
+    <string name="setup_title">设置</string>
+    <string name="setup_preferences_title">用户偏好设置</string>
+    <string name="setup_login_title">登录设置</string>
+    <string name="setup_logout">注销</string>
+    <string name="setup_assist_care_btntext">自动消息</string>
+    <string name="setup_person_info_btntext">个人信息</string>
+    <string name="setup_seniors_info_btntext">被关注人信息</string>
+    <string name="setup_emergence_info_btntext">紧急通告消息</string>
+    <string name="setup_common_info_btntext">通用</string>
+    <string name="setup_about_btntext">关于</string>
+    <string name="setup_blood_type_a">A</string>
+    <string name="setup_blood_type_b">B</string>
+    <string name="setup_blood_type_o">O</string>
+    <string name="setup_blood_type_ab">AB</string>
+    <string name="setup_blood_type_na">未知</string>
+    <string name="setup_input_hint_name">请输入您的姓名</string>
+    <string name="setup_input_hint_nick">请输入您的昵称</string>
+    <string name="setup_input_hint_height">请输入您的身高，单位为厘米</string>
+    <string name="setup_input_hint_weight">请输入您的体重，单位为千克</string>
+    <string name="setup_input_hint_address">请输入您的地址</string>
+    <string name="setup_input_hint_allergy">请输入您的过敏反应</string>
+    <string name="setup_input_hint_medical">请输入您的用药历史</string>
+    <string name="setup_input_cardid_error">请正确输入身份证号</string>
+    <string name="setup_input_phone_error">请正确输入手机号码</string>
+    <string name="setup_accident_btntext">他人求助历史信息</string>
+    <string name="setup_sos_btntext">被关注人跌倒历史信息</string>
+
+    <!-- Warning Activity -->
+    <string name="warning_default_title">警告</string>
+    <string name="warning_delete_seniors_title">取消关注</string>
+    <string name="warning_delete_seniors_content_head_text">确定要取消对 </string>
+    <string name="warning_delete_seniors_content_end_text"> 的关注?</string>
+    <string name="warning_resotre_factory_title">还原出厂设置</string>
+    <string name="warning_resotre_factory_content">还原出厂设置会删除本软件所有的数据和用户偏好信息，是否确定还原出厂设置？</string>
+    <string name="warning_system_message_title">微笑天天 系统消息</string>
+    <string name="warning_accident_message_title">意外报警</string>
+    <string name="warning_accident_message_content_front">微笑天天系统检测到您的被关注人 </string>
+    <string name="warning_accident_message_content_mid"> 在  </string>
+    <string name="warning_accident_message_content_behind"> 附近出现意外  </string>
+    <string name="warning_sos_message_title">微笑天天 求救信息</string>
+    <string name="warning_sos_message_content">微笑天天 检测到有人在您附近出现意外，请帮忙救助</string>
+    <string name="warning_sos_message_user_content">监护人留言：</string>
+    <string name="warning_attention_message_title">请求关注</string>
+    <string name="warning_attention_message_content">请求关注您的被关注人：</string>
+    <string name="warning_logout_title">退出</string>
+    <string name="warning_logout_text">注销不会删除历史资料，下次登录后可继续使用</string>
+    <string name="warning_logout_sure_btn">退出登录</string>
+
+    <!-- Fall down Warning -->
+    <string name="fall_down_warning_title">跌倒报警</string>
+    <string name="fall_down_warning_content">检测到跌倒</string>
+
+    <!-- Message Activity -->
+    <string name="message_default_title">微笑天天消息</string>
+    <string name="message_accident_button">异常消息历史</string>
+
+    <!-- Common Setup Activity -->
+    <string name="common_sure">确定</string>
+    <string name="common_password_change_button_text">修改密码</string>
+    <string name="common_seniorphone_change_button_text">修改被关注人手机号</string>
+    <string name="common_clear_button_text">还原出厂设置</string>
+
+    <!-- Add Seniors Activity -->
+    <string name="addsenior_cardid_title">请输入被关注人身份证号</string>
+    <string name="addsenior_mainchild_phone_title">请输入第一监护人的手机号码</string>
+
+    <!-- Reg Seniors Activity -->
+    <string name="regsenior_name_title">请输入被注册人姓名</string>
+    <string name="regsenior_nick_title">请输入被注册人昵称</string>
+    <string name="regsenior_height_title">请输入被注册人身高(cm)</string>
+    <string name="regsenior_weight_title">请输入被注册人体重(kg)</string>
+    <string name="regsenior_address_title">请输入被注册人住址</string>
+    <string name="regsenior_cardid_title">请输入被注册人身份证号</string>
+    <string name="regsenior_allergic_title">请输入被注册人的过敏反应</string>
+    <string name="regsenior_medical_title">请输入被注册人的用药情况</string>
+    <string name="regsenior_phone_title">请输入被注册人的手机号</string>
+    <string name="regsenior_verification_title">请输入手机验证码</string>
+    <string name="regsenior_sendverification_btntitle">发送手机验证码</string>
+    <string name="regsenior_birth_title">被注册人生日:</string>
+    <string name="regsenior_code_title">请输入被注册人6位登陆密码</string>
+    <string name="automsgedit_time_title">请选择发送时间</string>
+
+    <!-- Senior Information Activity -->
+    <string name="seniorinfo_add_senior_btn_text">添加已注册被关注人</string>
+    <string name="seniorinfo_reg_senior_btn_text">注册被关注人</string>
+    <string name="senior_info_getinfo_error">获取被关注人信息失败，正在重新加载被关注人信息</string>
+
+    <!-- Parents States Activity -->
+    <string name="state_msg2_text">点我查看被关注人今日的运动轨迹</string>
+
+    <!-- Auto Message Display Avtivity -->
+    <string name="automsgdsp_add_new_message_text">添加新消息</string>
+    <string name="automsgdsp_remark_title_text">发送时间</string>
+    <string name="automsgedit_edittext_empty_reminder">输入内容不可为空</string>
+    <string name="automsgedit_user_choise_error">请正确选择被关注人</string>
+    <string name="automsgedit_addnewmsg_fault">添加新消息失败</string>
+    <string name="automsgedit_time_pass_error">请勿设置过去的时间</string>
+    <string name="automsgedit_setup_okay">添加自动消息成功</string>
+
+    <!-- register user activity -->
+    <string name="reguser_nick_title">请输入昵称</string>
+    <string name="reguser_phone_title">请输入注册的手机号码</string>
+    <string name="reguser_password_title">请输入密码</string>
+    <string name="reguser_password_again_title">请再次输入密码</string>
+    <string name="reguser_cardid_title">请输入身份证号</string>
+    <string name="reguser_name_title">请输入姓名</string>
+    <string name="reguser_register_btn_text">注册</string>
+    <string name="reguser_phone_error">请正确输入手机号码</string>
+    <string name="reguser_verification_error">请正确输入验证码</string>
+    <string name="reguser_password_length_error">请正确输入密码,长度需在4位到16位之间</string>
+    <string name="reguser_password_different_error">两次密码输入不相同，请重新确认密码</string>
+    <string name="reguser_cardId_short_error">请正确输入身份证号码</string>
+    <string name="reguser_nick_long_error">昵称过长，请输入16位以内的昵称</string>
+    <string name="reguser_name_error">请正确输入姓名</string>
+
+    <!-- Person Information Activity -->
+    <string name="personinfo_name_title">姓名</string>
+    <string name="personinfo_nick_title">昵称</string>
+    <string name="personinfo_birth_title">生日</string>
+    <string name="personinfo_sex_title">性别</string>
+    <string name="personinfo_height_title">身高</string>
+    <string name="personinfo_weight_title">体重</string>
+    <string name="personinfo_address_title">地址</string>
+    <string name="personinfo_allergy_title">过敏反应</string>
+    <string name="personinfo_medical_title">用药情况</string>
+    <string name="personinfo_blood_title">血型</string>
+    <string name="personinfo_emergence_card_title">紧急医疗卡</string>
+    <string name="personinfo_sex_male">男</string>
+    <string name="personinfo_sex_female">女</string>
+    <string name="personinfo_need_complete_information">需完整填写完整个人信息后，方可开启紧急医疗卡</string>
+    <string name="personinfo_name_no_changing">姓名不可修改</string>
+
+    <!-- Single Date Activity -->
+    <string name="birth_early_error">请正确设置生日</string>
+
+    <!-- warning activity -->
+    <string name="delete_senior_title">删除联系人</string>
+    <string name="delete_senior_front_content">确定删除与</string>
+    <string name="delete_senior_behind_content">的联系？</string>
+
+    <!-- Seniors Information Modify Activity -->
+    <string name="seniorinfomod_nameeidt_hint_text">请输入姓名</string>
+    <string name="seniorinfomod_nickeidt_hint_text">请输入昵称</string>
+    <string name="seniorinfomod_heighteidt_hint_text">请输入身高</string>
+    <string name="seniorinfomod_weighteidt_hint_text">请输入体重</string>
+    <string name="seniorinfomod_addresseidt_hint_text">请输入地址</string>
+    <string name="seniorinfomod_allergiceidt_hint_text">请输入过敏反应</string>
+    <string name="seniorinfomod_medicaleidt_hint_text">请输入用药历史</string>
+
+    <!-- Emergency Information Activity -->
+    <string name="emergencyinfo_title_text">请编辑快捷消息，当被关注人出现意外时，可自动将本消息发送给周围的微笑天天用户</string>
+
+    <!-- Change Senior Phone Edit Activity -->
+    <string name="changephone_phone_edit_text">请输入新手机号码</string>
+
+    <!-- Network Response Text -->
+    <string name="response_error_login_other_phone">账号在另一台手机上登录，如非本人，请注意账户安全</string>
+    <string name="response_error_no_login">用户未登录，请重新登录 </string>
+    <string name="response_error_login_null_data">无此用户，请重新登录</string>
+    <string name="response_error_login_incorrect_message">账户密码不正确，请重新登录</string>
+    <string name="response_error_login_fault">登录失败</string>
+    <string name="response_error_login_success">登录成功</string>
+    <string name="response_error_register_repetitive_phone">该手机号码已注册，请勿重复注册</string>
+    <string name="response_error_register_incorrect_valid">验证码错误 </string>
+    <string name="response_error_register_fault">注册失败 </string>
+    <string name="response_error_register_senior_okay">注册成功 </string>
+    <string name="response_error_delete_senior_okay">解除关注成功 </string>
+    <string name="response_error_delete_fault">解除关注失败 </string>
+    <string name="response_error_add_senior_okay">关注请求已发送</string>
+    <string name="response_error_add_senior_fault">关注请求发送失败</string>
+    <string name="response_error_request_childinfo_fault">刷新个人信息失败</string>
+    <string name="response_error_modify_child_infomation_okay">修改个人信息成功</string>
+    <string name="response_error_modify_child_infomation_error">修改个人信息失败</string>
+    <string name="response_error_modphone_pphone_error">修改原手机号和密码不匹配</string>
+    <string name="response_error_modphone_fault">修改手机号失败</string>
+    <string name="response_error_modphone_okay">修改手机号成功</string>
+    <string name="response_error_senior_location_okay">被关注人位置已刷新</string>
+    <string name="response_error_senior_location_fault">被关注人位置刷新失败</string>
+    <string name="response_error_senior_sport_okay">被关注人信息已刷新</string>
+    <string name="response_error_senior_sport_fault">被关注人活动信息刷新失败</string>
+    <string name="response_error_senior_track_fault">被关注人运动路径刷新失败</string>
+    <string name="response_error_senior_track_okay">被关注人运动路径刷新成功</string>
+    <string name="response_error_sendsos_okay">紧急求助信息发送成功</string>
+    <string name="response_error_sendsos_fault">紧急求助信息发送失败</string>
+    <string name="response_error_sendvalid_okay">验证码已发送</string>
+    <string name="response_error_sendvalid_fault">验证码发送失败</string>
+    <string name="response_error_register_okay">注册成功</string>
+    <string name="response_error_senior_location_nodata">被关注人近期位置未上传</string>
+    <string name="response_error_senior_track_nodata">被关注人近期位置未上传</string>
+    <string name="response_error_senior_sport_nodata">被关注人近期位置运动信息未上传</string>
+    <string name="response_error_modify_senior_infomation_okay">被关注人信息修改成功</string>
+    <string name="noresponse_unknown_error">未知原因，发送失败，请重试</string>
+    <string name="noresponse_exceed_maxtask">网络情况目前不太良好，请稍后重试</string>
+    <string name="noresponse_no_response">服务器无响应，请稍后重试</string>
+    <string name="noresponse_logout">用户已登出，任务取消</string>
+
+    <!-- Register Seniors Activity -->
+    <string name="input_name_long_error">姓名输入过长</string>
+    <string name="input_name_short_error">姓名输入过短</string>
+    <string name="input_name_format_error">姓名格式输入有误</string>
+    <string name="input_nick_long_error">昵称输入过长</string>
+    <string name="input_address_long_error">地址输入过长</string>
+    <string name="input_allergic_long_error">过敏反应输入过长</string>
+    <string name="input_medical_long_error">用药历史输入过长</string>
+    <string name="input_height_error">身高仅能输入数字</string>
+    <string name="input_weight_error">体重仅能输入数字</string>
+    <string name="input_blood_error">血型输入不正确</string>
+    <string name="input_sex_error">性别输入不正确</string>
+    <string name="input_card_error">身份证输入不正确</string>
+    <string name="input_code_error">登陆码输入不正确</string>
+    <string name="input_valid_error">手机验证码输入不正确</string>
+    <string name="input_code_repeated_error">登陆码已存在，请重新设置登陆码</string>
+    <string name="input_code_type_error">登陆码尽可使用数字和字母，且必须六位</string>
+
+    <!-- About Activity -->
+    <string name="about_title_text">    工作压力大、生活节奏快导致顾小就顾不上老已成为当下社会中坚力量们永远的痛。每天在生存和生活之间奔波的我们能做的仅仅是偶尔给父母打个电话，但并不是每次都接通，有时是父母没听到电话铃声，有时是忘记带了电话，但每一次的未接通都会更加增添子女们的担忧与牵挂。当移动互联网遇上现代养老服务新需求，便催生了“微笑天天”的温情上线，使得子女们给父母养老尽孝变得非常简便有效，少一份担心，多一份安心。\n    “微笑天天”是专门为繁忙的子女量身定制的、可以随时随地关注、关心和关爱我们的父母的一款多功能智能移动应用平台，提供了实时监护、一键求助、智能求助、参与式救助、按需定位、辅助关爱、智能提醒、间接交友等一系列贴心服务和实用功能。趁着我们的父母还健在，作儿女的我们，及时行孝吧，别给自己留下遗憾，别让亲情在无奈中流逝。赶快为自己和父母的手机下载安装“微笑天天”，每天“微信”之前先“微笑”，随时随地尽微孝，让你天天都微笑。想“微”就“笑”，及时行孝，今天你“微笑”了吗？</string>
+
+    <!-- Common Message Display Activity -->
+    <string name="commonmsg_input_long_error">输入不可多于256个字</string>
+    
+    <!-- auto msg display activity -->
+    <string name="automsgdsp_circlemsg_datetext">每日</string>
+    <string name="automsgdsp_addcirclemsg_text">添加每日消息</string>
+    <string name="automsgdsp_addoneoffmsg_text">添加一次性消息</string>
+    <string name="automsgdsp_addmedicalmsg_text">添加服药提醒消息</string>
+    
+    <!-- Service Core Service -->
+	<string name="networkexception_no_network">网络服务不可用，请检查网络连接</string>
+	<string name="servicecore_no_certificate_error">软件信任证书已失效，请下载新版本的软件</string>
+	<string name="servicecore_sosmsg_title">微笑天天用户跌倒求助</string>
+	<string name="servicecore_accmsg_title">微笑天天关注人跌倒求助</string>
+	
+	<!-- Msg Person Activity -->
+	<string name="msgperson_common_message_text">常用消息</string>
+	<string name="msgperson_auto_message_text">自动消息</string>
+</resources>

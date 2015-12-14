@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dip">
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/automsgdsp_addcirclemsg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/automsgdsp_addoneoffmsg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/automsgdsp_addmedmsg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dip"></View>
+
+    <com.fortysevendeg.android.swipelistview.SwipeListView
+        xmlns:swipe="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/automsgdsp_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        swipe:swipeBackView="@+id/automsgdsp_list_back"
+        swipe:swipeCloseAllItemsWhenMoveList="true"
+        swipe:swipeFrontView="@+id/automsgdsp_list_front"
+        swipe:swipeMode="left"
+        swipe:swipeOffsetLeft="230dp" />
+
+</LinearLayout>

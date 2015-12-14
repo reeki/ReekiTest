@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical"
+    android:paddingTop="16dip" >
+
+    <DatePicker
+        android:id="@+id/single_date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:calendarViewShown="false" >
+    </DatePicker>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dip" >
+    </View>
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/single_date_sure_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.forchild000.surface.SetupButton>
+
+</LinearLayout>

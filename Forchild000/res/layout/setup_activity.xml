@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@color/deep_black" >
+
+        <TextView
+            android:id="@+id/setup_title_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:maxWidth="60dip"
+            android:singleLine="true"
+            android:text="Left"
+            android:textColor="#ffffffff"
+            android:textSize="14dip"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/setup_title_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxWidth="120dip"
+            android:singleLine="true"
+            android:text="Center"
+            android:textColor="#ffffffff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/setup_title_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:maxWidth="60dip"
+            android:singleLine="true"
+            android:text="Right"
+            android:textColor="#ffffffff"
+            android:textSize="14dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="12dip"
+        android:background="@color/light_gray" />
+
+    <!-- 辅助关爱 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_assist_care_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:background="@color/light_gray"
+        android:visibility="gone" />
+
+    <!-- 个人信息 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_person_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <!-- 被关注人信息 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_olders_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <!-- 注册被关注人 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_register_seniors_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <!-- 添加已经存在的被关注人信息 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_add_senior_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <!-- 紧急求救消息 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_emergence_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="30dip" />
+
+    <!-- 别人老人的意外 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_accident_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <!-- 自家老人的意外 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_sos_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="30dip" />
+
+    <!-- 通用 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_common_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <!-- 关于 -->
+
+    <com.forchild000.surface.SetupButton
+        android:id="@+id/setup_about_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <!-- 异常捕获按键 -->
+
+    <Button
+        android:id="@+id/setup_catch_logcat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="异常捕获" >
+    </Button>
+
+</LinearLayout>

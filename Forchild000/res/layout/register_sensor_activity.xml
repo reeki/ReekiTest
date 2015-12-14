@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:paddingTop="16dip" >
+
+        <!-- code -->
+
+        <EditText
+            android:id="@+id/regsenior_code_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_code_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- name -->
+
+        <EditText
+            android:id="@+id/regsenior_name_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_name_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- nick name -->
+
+        <EditText
+            android:id="@+id/regsenior_nick_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_nick_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- sex, not edittext -->
+
+        <Spinner
+            android:id="@+id/regsenior_sex_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- blood -->
+
+        <Spinner
+            android:id="@+id/regsenior_blood_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- height -->
+
+        <EditText
+            android:id="@+id/regsenior_height_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_height_title"
+            android:inputType="numberSigned"
+            android:maxLength="3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- weight -->
+
+        <EditText
+            android:id="@+id/regsenior_weight_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_weight_title"
+            android:inputType="numberSigned"
+            android:maxLength="3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- address -->
+
+        <EditText
+            android:id="@+id/regsenior_address_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_address_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- cardid -->
+
+        <EditText
+            android:id="@+id/regsenior_cardid_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_cardid_title"
+            android:password="true" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- allergic -->
+
+        <EditText
+            android:id="@+id/regsenior_allergic_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_allergic_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- medical -->
+
+        <EditText
+            android:id="@+id/regsenior_medical_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_medical_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- phone -->
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/regsenior_change_phone_btn"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/regsenior_phone_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/regsenior_phone_title"
+            android:inputType="phone"
+            android:maxLength="11" 
+            android:visibility="gone"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- 手机验证码 -->
+
+        <LinearLayout
+            android:id="@+id/regsenior_verification_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <EditText
+                android:id="@+id/regsenior_verification_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:hint="@string/regsenior_verification_title" />
+
+            <View
+                android:layout_width="12dip"
+                android:layout_height="12dip" />
+
+            <Button
+                android:id="@+id/regsenior_sendverification_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/anti_btn"
+                android:text="@string/regsenior_sendverification_btntitle"
+                android:textColor="@drawable/anti_btn" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/regsenior_birth_title"
+            android:textColor="@color/gray" />
+
+        <DatePicker
+            android:id="@+id/regsenior_birth_datepicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:calendarViewShown="false" >
+        </DatePicker>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="30dip" />
+
+        <Button
+            android:id="@+id/regsenior_sure_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/onerow_option_selector"
+            android:text="@string/common_sure" >
+        </Button>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="20dip" />
+    </LinearLayout>
+
+</ScrollView>

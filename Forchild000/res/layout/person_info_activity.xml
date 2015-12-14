@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- 姓名 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_name_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+        <!-- 昵称 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_nick_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+        <!-- 生日 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_birth_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <!-- 性别 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_sex_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <!-- 身高 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_height_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <!-- 体重 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_weight_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <!-- 地址 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_address_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="30dip" />
+        
+        <!-- 过敏反应 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_allergy_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <!-- 用药情况 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_medical_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <!-- 血型 -->
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/person_blood_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="30dip" />
+        
+        <!-- 紧急医疗卡 -->
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/person_med_card_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+    </LinearLayout>
+
+</ScrollView>

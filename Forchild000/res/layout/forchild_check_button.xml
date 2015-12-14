@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/check_button_top_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/light_gray"
+        android:visibility="gone" >
+    </View>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip" >
+
+        <TextView
+            android:id="@+id/check_button_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:paddingLeft="16dip"
+            android:text="Test"
+            android:textSize="18dip" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/check_button_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:paddingRight="16dip"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_check_buttonless_off" >
+        </ImageView>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/check_button_bottom_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/light_gray"
+        android:visibility="gone" />
+
+</LinearLayout>

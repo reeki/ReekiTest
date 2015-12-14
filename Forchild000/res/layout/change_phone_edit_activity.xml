@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <EditText
+                android:id="@+id/changephone_phone_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/changephone_phone_edit_text"
+                android:inputType="phone"
+                android:maxLength="11" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="12dip" />
+
+            <!-- 手机验证码 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/changephone_verification_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:hint="@string/regsenior_verification_title" />
+
+                <View
+                    android:layout_width="12dip"
+                    android:layout_height="12dip" />
+
+                <Button
+                    android:id="@+id/changephone_sendverification_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/anti_btn"
+                    android:text="@string/regsenior_sendverification_btntitle"
+                    android:textColor="@drawable/anti_btn" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="30dip" />
+        
+        <Button
+            android:id="@+id/changephone_sure_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/onerow_option_selector"
+            android:text="@string/common_sure" >
+        </Button>
+    </LinearLayout>
+
+</ScrollView>

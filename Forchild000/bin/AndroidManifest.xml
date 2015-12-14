@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.forchild000.surface"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="14" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="f555f9d9d906814b8a41817e26b028d1" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name=".SeniorsDisplayActivity"
+            android:label="@string/senior_info_activity_lable"
+            ></activity>
+        <activity
+            android:name=".MsgActivity"
+            android:label="@string/message_activity_lable"
+            ></activity>
+        <activity
+            android:name=".MsgPersonActivity"
+            android:theme="@style/Mystyle"
+            android:launchMode="singleInstance"
+            ></activity>
+        <activity
+            android:name=".ParentsTrackActivity"
+            android:label="@string/parent_track_activity_lable"
+            android:launchMode="singleInstance"
+            android:theme="@style/Mystyle" >
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/about_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AccidentDisplayActivity"
+            android:label="@string/accident_display_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AccidentHistoryActivity"
+            android:label="@string/accident_history_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AddFriendActivity"
+            android:label="@string/add_friend_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AddSeniorActivity"
+            android:label="@string/add_seniors_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AutoMessageDisplayActivity"
+            android:label="@string/auto_message_display_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AutoMessageEditActivity"
+            android:label="@string/auto_message_edit_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AutoMsgDisplayActivity"
+            android:label="@string/auto_message_display_activity_lable" >
+        </activity>
+        <activity
+            android:name=".AutoMsgEditActivity"
+            android:label="@string/auto_message_edit_activity_lable" >
+        </activity>
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:label="@string/change_password_activity_lable" >
+        </activity>
+        <activity
+            android:name=".ChangeSeniorPhoneActivity"
+            android:label="@string/change_senior_phone_activity_lable" >
+        </activity>
+        <activity
+            android:name=".ChangeSeniorPhoneEditActivity"
+            android:label="@string/change_child_phone_activity_lable" >
+        </activity>
+        <activity
+            android:name=".EmergenceInfoActivity"
+            android:label="@string/emergence_info_activity_lable" >
+        </activity>
+        <activity
+            android:name=".EmergencyNoticeActivity"
+            android:label="@string/emergence_notice_activity_lable" >
+        </activity>
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/history_activity_lable"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name=".MessageActivity"
+            android:label="@string/message_activity_lable"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name=".MessageHistoryActivity"
+            android:label="@string/message_history_activity_lable" >
+        </activity>
+        <activity
+            android:name=".ParentStates"
+            android:label="@string/main_activity_lable"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name=".PersonInfoActivity"
+            android:label="@string/person_info_activity_lable" >
+        </activity>
+        <activity
+            android:name=".RegisterSeniorActivity"
+            android:label="@string/register_senior_activity_lable" >
+        </activity>
+        <activity
+            android:name=".RegisterUserActivity"
+            android:label="@string/register_user_activity_lable" >
+        </activity>
+        <activity
+            android:name=".SeniorsInfoActivity"
+            android:label="@string/senior_info_activity_lable" >
+        </activity>
+        <activity
+            android:name=".SeniorsInfoModifyActivity"
+            android:label="@string/senior_info_mod_activity_lable" >
+        </activity>
+        <activity
+            android:name=".SetupActivity"
+            android:label="@string/setup_activity_lable" >
+        </activity>
+        <activity
+            android:name=".SOSHistoryActivity"
+            android:label="@string/sos_activity_lable" >
+        </activity>
+        <activity
+            android:name=".WarningActivity"
+            android:label="@string/warning_activity_lable"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name=".CommonSetupActivity"
+            android:label="@string/common_setup_activity_lable" >
+        </activity>
+        <activity
+            android:name=".SingleChoiceSetup"
+            android:label="@string/setup_lable" >
+        </activity>
+        <activity
+            android:name=".SingleDateSetup"
+            android:label="@string/setup_lable" >
+        </activity>
+        <activity
+            android:name=".SingleEditSetup"
+            android:label="@string/setup_lable" >
+        </activity>
+        <activity
+            android:name=".EmergencyVeterinaryActivity"
+            android:label="@string/emergency_veterinary_lable" >
+        </activity>
+        <activity
+            android:name=".CommonMessageDisplayActivity"
+            android:label="@string/common_message_display_lable" >
+        </activity>
+
+        <receiver
+            android:name=".AutoMsgReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.forchild.automsg.broadcast" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 系统核心服务service -->
+        <service android:name=".ServiceCore" >
+        </service>
+    </application>
+
+</manifest>

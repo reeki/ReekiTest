@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical"
+    android:paddingTop="16dip" >
+
+    <RadioGroup
+        android:id="@+id/signle_choice_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/light_gray"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/signle_choice_btn0"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/onerow_option_selector_top"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/signle_choice_btn1"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/onerow_option_selector_conter"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip" />
+
+        <RadioButton
+            android:id="@+id/signle_choice_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/onerow_option_selector_conter"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip" />
+
+        <RadioButton
+            android:id="@+id/signle_choice_btn3"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/onerow_option_selector_bottom"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip" />
+    </RadioGroup>
+
+</LinearLayout>

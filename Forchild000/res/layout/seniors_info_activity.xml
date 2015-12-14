@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <View
+            android:id="@+id/seniors_block_0"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip" >
+        </View>
+
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/seniors_first_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/seniors_block_1"
+            android:layout_width="fill_parent"
+            android:layout_height="12dip"
+            android:visibility="gone" />
+
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/seniors_second_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/seniors_block_2"
+            android:layout_width="fill_parent"
+            android:layout_height="12dip"
+            android:visibility="gone" />
+
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/seniors_third_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/seniors_block_3"
+            android:layout_width="fill_parent"
+            android:layout_height="12dip"
+            android:visibility="gone" />
+
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/seniors_fourth_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/seniors_block_4"
+            android:layout_width="fill_parent"
+            android:layout_height="12dip"
+            android:visibility="gone" />
+
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/seniors_fifth_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/seniors_block_5"
+            android:layout_width="fill_parent"
+            android:layout_height="12dip"
+            android:visibility="gone" />
+
+        <com.forchild000.surface.ContentButton
+            android:id="@+id/seniors_sixth_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/seniors_block_subfield_1"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:visibility="gone" />
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/seniors_add_seniors"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@color/white" />
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/seniors_reg_seniors"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@color/white" />
+    </LinearLayout>
+
+</ScrollView>

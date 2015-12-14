@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dip"
+        android:orientation="vertical"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="25dip"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/history_runtime_title" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/history_walktime_title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="35dip"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="10dip"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip" >
+
+            <TextView
+                android:id="@+id/history_run_time_display"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00:00"
+                android:textColor="@color/lightblue" />
+
+            <TextView
+                android:id="@+id/history_walk_time_display"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00:00"
+                android:textColor="@color/lightblue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="25dip"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip" >
+            
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/history_standtime_title" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/history_calorie_title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="35dip"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="10dip"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip"
+            android:layout_marginBottom="16dip" >
+
+            <TextView
+                android:id="@+id/history_stand_time_display"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00:00"
+                android:textColor="@color/lightblue" />
+
+            <TextView
+                android:id="@+id/history_calorie_count"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0 卡路里"
+                android:textColor="@color/lightblue" />
+        </LinearLayout>
+
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/history_pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:gravity="center_horizontal" >
+
+        <Spinner
+            android:id="@+id/history_title_center_spinner"
+            android:layout_width="220dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/history_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@color/deep_black" >
+
+        <TextView
+            android:id="@+id/history_title_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:maxWidth="60dip"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="14dip" />
+
+        <TextView
+            android:id="@+id/history_title_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxWidth="120dip"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/history_title_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:maxWidth="60dip"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="14dip" />
+    </RelativeLayout>
+
+</FrameLayout>

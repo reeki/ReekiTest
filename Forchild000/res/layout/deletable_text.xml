@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:orientation="vertical"
+            android:paddingLeft="16dip"
+            android:paddingRight="5dip"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" >
+
+            <TextView
+                android:id="@+id/deleteable_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dip"
+                android:text="Reeki"
+                android:textColor="@color/black"
+                android:textSize="16dip" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/deleteable_text_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3dip"
+                android:text="hello"
+                android:textColor="@color/gray"
+                android:textSize="10dip" >
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/deleteable_text_remark0_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="5dip"
+                        android:text="send time:"
+                        android:textColor="@color/cambridge_blue"
+                        android:textSize="12dip" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/deleteable_text_remark0_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="20dip"
+                        android:text="12:12:12"
+                        android:textColor="@color/cambridge_blue"
+                        android:textSize="12dip" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical" 
+            >
+
+            <Button
+                android:id="@+id/deleteable_text_delete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:text="删除"
+                android:textSize="15dip"
+                android:visibility="gone"
+                android:textColor="@drawable/delete_button"
+                android:background="@drawable/delete_button" >
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray"
+        android:layout_weight="1" >
+    </View>
+
+</LinearLayout>

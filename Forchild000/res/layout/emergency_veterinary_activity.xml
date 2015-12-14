@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="8dip"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:paddingTop="8dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="80dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/emergencysetup_portrait"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:scaleType="fitXY"
+                android:src="@drawable/medical_card_figure_female" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="16dip" >
+
+                <TextView
+                    android:id="@+id/emergencysetup_user_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_name"
+                    android:textSize="16dip" />
+
+                <TextView
+                    android:id="@+id/emergencysetup_user_sex"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_info"
+                    android:textSize="16dip" />
+
+                <TextView
+                    android:id="@+id/emergencysetup_user_age"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dip" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="20dip" >
+        </View>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="身高"
+            android:textSize="14dip"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/emergencysetup_user_height"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_info"
+            android:textSize="16dip" 
+            android:textColor="@color/deep_gray"/>
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="10dip" >
+        </View>
+        
+         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="体重"
+            android:textSize="14dip"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/emergencysetup_user_weight"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_info"
+            android:textSize="16dip"
+            android:textColor="@color/deep_gray" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="10dip" >
+        </View>
+        
+         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="血型"
+            android:textSize="14dip" 
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/emergencysetup_user_blood"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_info"
+            android:textSize="16dip"
+            android:textColor="@color/deep_gray" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="10dip" >
+        </View>
+        
+         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="紧急联系电话"
+            android:textSize="14dip" 
+            android:textColor="@color/black"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/emergencysetup_emergency_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_info"
+            android:textSize="16dip"
+            android:textColor="@color/deep_gray" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="10dip" >
+        </View>
+        
+         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="地址"
+            android:textSize="14dip" 
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/emergencysetup_user_address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_info"
+            android:textSize="16dip"
+            android:textColor="@color/deep_gray" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="10dip" >
+        </View>
+        
+         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="病史"
+            android:textSize="14dip" 
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/emergencysetup_medical_info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_info"
+            android:textSize="16dip"
+            android:textColor="@color/deep_gray" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="10dip" >
+        </View>
+        
+         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="过敏反应"
+            android:textSize="14dip" 
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/emergencysetup_user_allergic"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_info"
+            android:textSize="16dip"
+            android:textColor="@color/deep_gray" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="10dip" >
+        </View>
+    </LinearLayout>
+
+</ScrollView>

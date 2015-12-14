@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/commonmsg_content_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:transcriptMode="alwaysScroll" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:orientation="horizontal"
+        android:paddingLeft="8dip"
+        android:paddingRight="8dip" >
+
+        <EditText
+            android:id="@+id/commonmsg_content_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:ems="4" >
+        </EditText>
+
+        <View
+            android:layout_width="10dip"
+            android:layout_height="1dip" />
+
+        <ImageView
+            android:id="@+id/commonmsg_add_btn"
+            android:layout_width="25dip"
+            android:layout_height="25dip"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_menu_add" />
+    </LinearLayout>
+
+</LinearLayout>

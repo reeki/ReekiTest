@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dip" >
+        </View>
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/common_password_change_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/common_seniorphone_change_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dip" />
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/common_clean_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dip" />
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/common_logout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/delete_button"
+            android:textColor="@drawable/delete_button" />
+    </LinearLayout>
+
+</ScrollView>

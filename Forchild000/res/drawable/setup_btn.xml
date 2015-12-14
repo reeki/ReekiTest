@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    	<item
+        	android:state_pressed="true"
+        	android:background="@color/gray"
+        	android:state_enabled="true"/>
+	</selector>
+
+    
+</animation-list>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:paddingTop="16dip" >
+
+        <TextView
+            android:id="@+id/warning_content_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="18dip" >
+        </TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/warning_sure_btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:layout_weight="1"
+                android:background="@drawable/anti_btn"
+                android:text="进入软件"
+                android:textColor="@drawable/anti_btn"
+                android:textSize="16dip" />
+
+            <Button
+                android:id="@+id/warning_cancel_btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:layout_weight="1"
+                android:background="@drawable/onerow_option_selector"
+                android:text="取消"
+                android:textSize="16dip"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dip" />
+    </LinearLayout>
+
+</ScrollView>

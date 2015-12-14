@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:paddingTop="16dip" >
+
+        <!-- 手机号 -->
+
+        <EditText
+            android:id="@+id/reguser_phone_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reguser_phone_title"
+            android:inputType="phone"
+            android:maxLength="11" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- 手机验证码 -->
+
+        <LinearLayout
+            android:id="@+id/reguser_verification_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/reguser_verification_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:hint="@string/regsenior_verification_title" />
+
+            <View
+                android:layout_width="12dip"
+                android:layout_height="12dip" />
+
+            <Button
+                android:id="@+id/reguser_sendverification_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/anti_btn"
+                android:text="@string/regsenior_sendverification_btntitle"
+                android:textColor="@drawable/anti_btn" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- password -->
+
+        <EditText
+            android:id="@+id/reguser_pasword_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reguser_password_title"
+            android:maxLength="16" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- password again -->
+
+        <EditText
+            android:id="@+id/reguser_pasword_again_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reguser_password_again_title"
+            android:maxLength="16" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+        <!-- name -->
+
+        <EditText
+            android:id="@+id/reguser_name_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reguser_name_title"
+            android:maxLength="8" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- 身份证 -->
+
+        <EditText
+            android:id="@+id/reguser_cardid_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reguser_cardid_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12dip" />
+
+        <!-- nick name -->
+
+        <EditText
+            android:id="@+id/reguser_nick_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reguser_nick_title" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="30dip" />
+
+        <Button
+            android:id="@+id/reguser_sure_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/onerow_option_selector"
+            android:text="@string/reguser_register_btn_text" >
+        </Button>
+    </LinearLayout>
+
+</ScrollView>

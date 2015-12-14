@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dp" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/msg_time_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/msgperson_sendtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="4dp"
+            android:paddingLeft="4dp"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:textColor="#ffffff"
+            android:textSize="10dip" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+
+        <ImageView
+            android:id="@+id/msgperson_userhead"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:focusable="false" />
+
+        <TextView
+            android:id="@+id/msgperson_chatcontent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/msgperson_userhead"
+            android:background="@drawable/tu"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="left|center"
+            android:lineSpacingExtra="2dp"
+            android:maxWidth="180dip"
+            android:textColor="#ff000000"
+            android:textSize="14dip" />
+
+        <TextView
+            android:id="@+id/msgperson_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/msgperson_userhead"
+            android:layout_toRightOf="@id/msgperson_chatcontent"
+            android:gravity="center"
+            android:textColor="#818181"
+            android:textSize="15sp"
+            android:visibility="gone" />
+        
+        <ImageView
+            android:layout_width="18dip"
+            android:layout_height="18dip"
+            android:layout_toLeftOf="@id/msgperson_chatcontent"
+            android:layout_marginRight="10dip"
+            android:layout_centerVertical="true"
+            android:id="@+id/msgperson_send_state"/>
+    </RelativeLayout>
+
+</LinearLayout>
