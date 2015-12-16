@@ -234,9 +234,13 @@ public class DatabaseHelper {
 		long result = -1;
 		if (cursor.getCount() > 0) {
 			result = db.update(AUTO_MESSAGE_TABLE, cv, "id = ?", new String[] { id + "" });
-		} else {
-			result = db.insert(AUTO_MESSAGE_TABLE, null, cv);
-		}
+		} 
+//		else {
+//			result = db.insert(AUTO_MESSAGE_TABLE, null, cv);
+//		}
+		
+		Log.e("DatabaseHelper", "update result:" + result);
+		
 		db.close();
 		return result;
 	}
@@ -255,6 +259,7 @@ public class DatabaseHelper {
 		values.put("day", siam.getDay());
 		values.put("sex", siam.getSex());
 		values.put("type", siam.getType());
+		Log.e("DatabaseHelper", siam.toString());
 		return this.updateAutoMessage(values, siam.getId());
 	}
 
@@ -425,6 +430,8 @@ public class DatabaseHelper {
 		} else {
 			result = db.insert(SOS_TABLE, null, cv);
 		}
+		
+		Log.e("DatabaseHelper", "result:" + result);
 		db.close();
 		return result;
 	}
@@ -437,7 +444,7 @@ public class DatabaseHelper {
 	}
 
 	public void close() {
-		if (this.db.isOpen()) {
+		if (db != null && this.db.isOpen()) {
 			db.close();
 		}
 		db = null;

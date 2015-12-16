@@ -76,7 +76,7 @@ public class RequestRegisterChild extends RequestBaseSidFrame {
 			result.put("phone", phoneNum);
 			result.put("passwd", pw);
 			result.put("valid", valid);
-			result.put("cardid", cardId);
+//			result.put("cardid", cardId);
 			result.put("name", name);
 		} catch (JSONException e) {
 			e.printStackTrace();

@@ -141,13 +141,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white" />
 
-    <!-- 关于 -->
 
-    <com.forchild000.surface.SetupButton
-        android:id="@+id/setup_about_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white" />
 
     <!-- 异常捕获按键 -->
 

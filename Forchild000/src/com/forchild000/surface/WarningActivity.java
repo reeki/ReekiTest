@@ -2,11 +2,9 @@ package com.forchild000.surface;
 
 import java.io.Serializable;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -108,8 +106,7 @@ public class WarningActivity extends AliveBaseActivity {
 					}
 					if (fid != BaseProtocolFrame.INT_INITIATION) {
 						Preferences preference = new Preferences(WarningActivity.this);
-						ServiceCore.addNetTask(new RequestAllowAddSenior(preference.getSid(), fid));
-
+						ServiceCore.addNetTask(new RequestAllowAddSenior(preference.getSid(), fid, 1));
 					}
 					break;
 				case WARNING_TYPE_LOGOUT:
@@ -121,6 +118,19 @@ public class WarningActivity extends AliveBaseActivity {
 				break;
 			case R.id.warning_cancel_btn:
 				setResult(RESULT_CANCELED);
+				switch (type) {
+				case WARNING_TYPE_REQUEST_ATTENTION:
+					if (!ServiceStates.getForchildServiceState(WarningActivity.this)) {
+						Intent serviceIntent = new Intent(WarningActivity.this, ServiceCore.class);
+						WarningActivity.this.startService(serviceIntent);
+					}
+					if (fid != BaseProtocolFrame.INT_INITIATION) {
+						Preferences preference = new Preferences(WarningActivity.this);
+						ServiceCore.addNetTask(new RequestAllowAddSenior(preference.getSid(), fid, 0));
+					}
+					break;
+				}
+
 				break;
 
 			default:
@@ -178,7 +188,8 @@ public class WarningActivity extends AliveBaseActivity {
 				content.setText(getText(R.string.warning_accident_message_content_front).toString() + startIntent.getStringExtra("name")
 						+ getText(R.string.warning_accident_message_content_mid).toString() + ma.getAddress()
 						+ getText(R.string.warning_accident_message_content_behind).toString());
-				accidentInfo = new AccidentInfo(0, ma.getLo(), ma.getLa(), ma.getDate(), startIntent.getStringExtra("name"));
+				accidentInfo = new AccidentInfo(0, ma.getLo(), ma.getLa(), ma.getDate(), startIntent.getStringExtra("name"), ma.getOid(),
+						ma.getSosId());
 			}
 			break;
 		case WARNING_TYPE_SOS_MESSAGE:
@@ -195,7 +206,7 @@ public class WarningActivity extends AliveBaseActivity {
 					contentText.append(mh.getCon());
 				}
 
-				sosInfo = new SOSInfo(0, mh.getLo(), mh.getLa(), mh.getDate(), mh.getUname(), mh.getCon());
+				sosInfo = new SOSInfo(0, mh.getLo(), mh.getLa(), mh.getDate(), mh.getUname(), mh.getCon(), mh.getSosId());
 				content.setText(contentText);
 			}
 			break;
@@ -204,18 +215,30 @@ public class WarningActivity extends AliveBaseActivity {
 			Serializable msgAtt = startIntent.getSerializableExtra("msg");
 			if (msgAtt != null && msgAtt instanceof MessageAttention) {
 				msgAttention = (MessageAttention) msgAtt;
+				fid = msgAttention.getFollowid();
 				StringBuffer contentText = new StringBuffer();
 				if (msgAttention.getNick() != null && msgAttention.getNick().length() > 0) {
 					contentText.append(msgAttention.getNick());
-					contentText.append("(");
-					contentText.append(msgAttention.getPhone());
-					contentText.append(")");
+					contentText.append(",");
+
 				}
+
+				if (msgAttention.getPhone() != null && msgAttention.getPhone().length() > 0) {
+					contentText.append("µç»°ºÅÂë:");
+					contentText.append(msgAttention.getPhone());
+					contentText.append(",");
+				}
+
 				contentText.append(getText(R.string.warning_attention_message_content));
-				content.setText(startIntent.getStringExtra("name"));
+				contentText.append(startIntent.getStringExtra("name"));
+				contentText.append(getText(R.string.warning_attention_message_content_agree));
+
+				content.setText(contentText);
+				Log.e("WarningActivity", contentText.toString());
 			}
 			sureBtn.setText(R.string.agree_to);
 			cancelBtn.setText(R.string.refuse_to);
+			cancelBtn.setVisibility(View.VISIBLE);
 			break;
 		case WARNING_TYPE_LOGOUT:
 			setTitle(R.string.warning_logout_title);

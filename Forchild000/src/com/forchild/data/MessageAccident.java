@@ -9,6 +9,7 @@ public class MessageAccident extends MessageFrame {
 	protected double lo = BaseProtocolFrame.DOUBLE_INITIATION;
 	protected double la = BaseProtocolFrame.DOUBLE_INITIATION;
 	protected String address;
+	protected int sosId;
 
 	public MessageAccident() {
 		super.type = MessageFrame.SENIORS_ACCIDENT_MESSAGE;
@@ -18,13 +19,14 @@ public class MessageAccident extends MessageFrame {
 		super(MessageFrame.SENIORS_ACCIDENT_MESSAGE, date, from, uname);
 	}
 
-	public MessageAccident(int type, long date, int from, String uname, int oldid, int acc, double lo, double la, String address) {
+	public MessageAccident(int type, long date, int from, String uname, int oldid, int acc, double lo, double la, String address, int sosId) {
 		super(MessageFrame.SENIORS_ACCIDENT_MESSAGE, date, from, uname);
 		super.setOid(oldid);
 		this.acc = acc;
 		this.lo = lo;
 		this.la = la;
 		this.address = address;
+		this.sosId = sosId;
 	}
 
 	public void setAddress(String address) {
@@ -66,4 +68,13 @@ public class MessageAccident extends MessageFrame {
 	public double getLa() {
 		return this.la;
 	}
+
+	public int getSosId() {
+		return sosId;
+	}
+
+	public void setSosId(int sosId) {
+		this.sosId = sosId;
+	}
+
 }

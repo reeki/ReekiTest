@@ -53,6 +53,7 @@ import com.forchild.frame.imple.NetworkHandler;
 import com.forchild.frame.servicenet.imple.ServiceAddSeniorProcess;
 import com.forchild.frame.servicenet.imple.ServiceAllowAddSeniorProcess;
 import com.forchild.frame.servicenet.imple.ServiceChildInformationProcess;
+import com.forchild.frame.servicenet.imple.ServiceCommonProcess;
 import com.forchild.frame.servicenet.imple.ServiceDeleteSeniorProcess;
 import com.forchild.frame.servicenet.imple.ServiceLoginProcess;
 import com.forchild.frame.servicenet.imple.ServiceModifyChindInformationProcess;
@@ -76,19 +77,6 @@ import com.forchild.server.NetworkHelper;
 import com.forchild.server.Preferences;
 
 public class ServiceCore extends Service {
-	public static final int ACTIVITY_TYPE_PARENTSTATES = 0;
-	public static final int ACTIVITY_TYPE_HISTORY = 1;
-	public static final int ACTIVITY_TYPE_LOGIN = 2;
-	public static final int ACTIVITY_TYPE_AUTOMESSAGEDISPLAY = 3;
-	public static final int ACTIVITY_TYPE_AUTOMESSAGEEDIT = 4;
-	public static final int ACTIVITY_TYPE_MESSAGE = 5;
-	public static final int ACTIVITY_TYPE_MESSAGEHISTORY = 6;
-	public static final int ACTIVITY_TYPE_REGISTER_USER = 7;
-	public static final int ACTIVITY_TYPE_SETUP = 8;
-	public static final int ACTIVITY_TYPE_PERSONINFORMATION = 9;
-	public static final int ACTIVITY_TYPE_ACCIDENTMESSAGEHISTORY = 10;
-	public static final int ACTIVITY_TYPE_SOSMESSAGEHISTORY = 11;
-	public static final int ACTIVITY_TYPE_SENIORSINFOACTIVITY = 12;
 
 	public static final String REQUEST_FLAGS_AUTO_SEND_MESSAGE = "com.forchild.request.auto.message";
 	public static final String REQUEST_FLAGS_LOGOUT = "com.forchild.logout.activity";
@@ -475,6 +463,7 @@ public class ServiceCore extends Service {
 		this.addProcess(new ServiceSeniorTrackProcess(this, preference));
 		this.addProcess(new ServiceUpdateLocationProcess(this, preference));
 		this.addProcess(new ServiceSendAutoMessageProcess(this, preference));
+		commonProcesser = new ServiceCommonProcess(this, preference);
 	}
 
 	public void addParseProcess() {

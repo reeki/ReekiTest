@@ -1,11 +1,11 @@
 package com.forchild.data;
 
 import java.io.Serializable;
-import java.text.ParseException;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.util.Log;
 
 public class MessageFrame implements Serializable {
 	/**
@@ -170,6 +170,12 @@ public class MessageFrame implements Serializable {
 			MessageAccident ma = new MessageAccident();
 			JSONObject content = source.optJSONObject("content");
 			if (content != null) {
+				// TODO sosid 出错时 进行处理
+				try {
+					ma.setSosId(content.getInt("sosid"));
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
 				int oldId = content.optInt("oldid", BaseProtocolFrame.INT_INITIATION);
 				int acc = content.optInt("acc");
 				double lo = content.optDouble("lo", BaseProtocolFrame.DOUBLE_INITIATION);
@@ -193,10 +199,17 @@ public class MessageFrame implements Serializable {
 				int acc = SOSContent.optInt("acc");
 				double lo = SOSContent.optDouble("lo", BaseProtocolFrame.DOUBLE_INITIATION);
 				double la = SOSContent.optDouble("la", BaseProtocolFrame.DOUBLE_INITIATION);
-				mg.setAcc(acc);
-				mg.setCon(con);
-				mg.setLa(la);
-				mg.setLo(lo);
+				try {
+					int sosId = SOSContent.getInt("sosid");
+					mg.setAcc(acc);
+					mg.setCon(con);
+					mg.setLa(la);
+					mg.setLo(lo);
+					mg.setSosId(sosId);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
 			}
 			mg.setDate(source.optLong("date"));
 			mg.setFrom(source.optInt("from"));
@@ -209,15 +222,21 @@ public class MessageFrame implements Serializable {
 			MessageAttention msgAttention = new MessageAttention();
 			JSONObject attentionContent = source.optJSONObject("content");
 			if (attentionContent != null) {
-				msgAttention.setPhone(source.optString("phone"));
-				msgAttention.setNick(source.optString("nick"));
-				msgAttention.setOid(source.optInt("oid"));
-				msgAttention.setFollowid(source.optInt("followid"));
+				msgAttention.setPhone(attentionContent.optString("phone"));
+				msgAttention.setNick(attentionContent.optString("nick"));
+				msgAttention.setOid(attentionContent.optInt("oid"));
+				msgAttention.setFollowid(attentionContent.optInt("followid"));
+				Log.e("MessageFrame.拼接。关注的详细信息拼接",
+						"oid:" + source.optInt("oid") + ", followid:" + source.optInt("followid") + ", source:" + source.toString() + ", content:"
+								+ attentionContent.toString());
+			} else {
+				Log.e("MessageFrame", "content is null");
 			}
 			msgAttention.setDate(source.optLong("date"));
 			msgAttention.setFrom(source.optInt("from"));
 			msgAttention.setUname(source.optString("uname"));
 			msgAttention.setType(type);
+			Log.e("MessageFrame", msgAttention.toString());
 			return msgAttention;
 		}
 		return null;

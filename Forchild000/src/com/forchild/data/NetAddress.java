@@ -9,7 +9,8 @@ package com.forchild.data;
 public class NetAddress {
 	/** 主机地址 */
 //	public static final String HOST = "https://114.215.201.229:8080/";
-	public static final String HOST = "https://114.215.201.229:8080/";
+//	public static final String HOST = "https://114.215.201.229:8080/";
+	public static final String HOST = "https://192.168.1.101/odcser/"; //台式机
 
 	public static final String LOGIN = "user/login";
 	public static final String LOGOUT = "user/logout";

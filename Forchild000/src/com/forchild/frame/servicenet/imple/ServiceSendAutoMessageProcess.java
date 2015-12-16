@@ -82,6 +82,12 @@ public class ServiceSendAutoMessageProcess extends ServiceSendMessageProcess {
 				break;
 			}
 
+			if (msg != null) {
+				if (msg.getState() == MessageFrame.SENDSTATE_SENDING) {
+					msg.setState(MessageFrame.SENDSTATE_FAULT);
+				}
+			}
+
 			if (msg.getOid() == ServiceCore.getMsgActivityOid()) {
 				Intent msgNotice = new Intent();
 				msgNotice.setAction("com.forchild.msg.SEND_AUTO_MESSAGE_FINISH");

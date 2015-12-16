@@ -42,7 +42,8 @@ public class RegisterUserActivity extends AliveBaseActivity {
 		nameEdit = (EditText) findViewById(R.id.reguser_name_edit);
 		sendVerifBtn = (Button) findViewById(R.id.reguser_sendverification_btn);
 		sureBtn = (Button) findViewById(R.id.reguser_sure_btn);
-
+		cardIdEdit.setVisibility(View.GONE);
+		
 		// cardIdEdit.setVisibility(View.INVISIBLE);
 		nickEdit.setVisibility(View.INVISIBLE);
 
@@ -87,7 +88,7 @@ public class RegisterUserActivity extends AliveBaseActivity {
 				String verificationText = verificationEdit.getText().toString();
 				String pwText = passwordEdit.getText().toString();
 				String pwAgainText = pwAgainEdit.getText().toString();
-				String cardIdText = cardIdEdit.getText().toString();
+//				String cardIdText = cardIdEdit.getText().toString();
 				// String nickText = nickEdit.getText().toString();
 				String nameText = nameEdit.getText().toString();
 
@@ -106,10 +107,10 @@ public class RegisterUserActivity extends AliveBaseActivity {
 					break;
 				}
 
-				if (cardIdText.length() != 18 && cardIdText.length() != 15) {
-					Toast.makeText(RegisterUserActivity.this, getText(R.string.reguser_cardId_short_error), Toast.LENGTH_SHORT).show();
-					break;
-				}
+//				if (cardIdText.length() != 18 && cardIdText.length() != 15) {
+//					Toast.makeText(RegisterUserActivity.this, getText(R.string.reguser_cardId_short_error), Toast.LENGTH_SHORT).show();
+//					break;
+//				}
 
 				// if (nickText.length() > 16) {
 				// Toast.makeText(RegisterUserActivity.this,
@@ -123,7 +124,7 @@ public class RegisterUserActivity extends AliveBaseActivity {
 					break;
 				}
 				sureBtn.setClickable(false);
-				RequestRegisterChild rrc = new RequestRegisterChild(phoneText, pwText, verificationText, nameText, cardIdText);
+				RequestRegisterChild rrc = new RequestRegisterChild(phoneText, pwText, verificationText, nameText, null);
 				rrc.addHandler(msgHandler);
 				ServiceCore.addNetTask(rrc);
 				break;
@@ -143,6 +144,7 @@ public class RegisterUserActivity extends AliveBaseActivity {
 					if (rlc.isResponse()) {
 						switch (rlc.getReq()) {
 						case BaseProtocolFrame.RESPONSE_TYPE_OKAY:
+							Toast.makeText(RegisterUserActivity.this, getText(R.string.reguser_register_success), Toast.LENGTH_SHORT).show();
 							break;
 						}
 					} else {
@@ -278,14 +280,11 @@ public class RegisterUserActivity extends AliveBaseActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-
-		StatesIntent.sendCloseState(this, ServiceCore.ACTIVITY_TYPE_REGISTER_USER);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		StatesIntent.sendAliveState(this, ServiceCore.ACTIVITY_TYPE_REGISTER_USER);
 	}
 
 }

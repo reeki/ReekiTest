@@ -13,7 +13,7 @@
             android:id="@+id/addsenior_cardid_edit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/addsenior_cardid_title"
+            android:hint="@string/addsenior_senior_phone_title"
             android:paddingLeft="16dip"
             android:paddingRight="16dip" />
 

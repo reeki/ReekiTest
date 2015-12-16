@@ -364,13 +364,11 @@ public class PersonInfoActivity extends AliveBaseActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		StatesIntent.sendCloseState(PersonInfoActivity.this, ServiceCore.ACTIVITY_TYPE_PERSONINFORMATION);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		StatesIntent.sendAliveState(PersonInfoActivity.this, ServiceCore.ACTIVITY_TYPE_PERSONINFORMATION);
 	}
 
 }

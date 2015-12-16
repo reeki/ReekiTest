@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
@@ -23,7 +24,6 @@ import android.widget.Toast;
 
 import com.forchild.server.DBFrame;
 import com.forchild.server.DatabaseHelper;
-import com.forchild.server.StatesIntent;
 
 public class SetupActivity extends Activity {
 	public static final int PERSON_SETUP_NAME = 1;
@@ -54,6 +54,10 @@ public class SetupActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.setup_activity);
 
+		// ActionBar actionBar = getActionBar();
+		// actionBar.setCustomView(R.layout.public_title_bar_layout);
+		// actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
 		titleCenterText = (TextView) findViewById(R.id.setup_title_center_text);
 		titleCenterText.setText(R.string.setup_title);
 
@@ -62,7 +66,7 @@ public class SetupActivity extends Activity {
 		seniorsInfoBtn = (SetupButton) findViewById(R.id.setup_olders_info_btn);
 		emeInfoBtn = (SetupButton) findViewById(R.id.setup_emergence_info_btn);
 		commonSetBtn = (SetupButton) findViewById(R.id.setup_common_info_btn);
-		aboutBtn = (SetupButton) findViewById(R.id.setup_about_btn);
+		// aboutBtn = (SetupButton) findViewById(R.id.setup_about_btn);
 		addSeniorBtn = (SetupButton) findViewById(R.id.setup_add_senior_btn);
 		regSeniorBtn = (SetupButton) findViewById(R.id.setup_register_seniors_btn);
 		accidentBtn = (SetupButton) findViewById(R.id.setup_accident_info_btn);
@@ -83,7 +87,7 @@ public class SetupActivity extends Activity {
 		seniorsInfoBtn.setOnClickListener(setupButtonListener);
 		emeInfoBtn.setOnClickListener(setupButtonListener);
 		commonSetBtn.setOnClickListener(setupButtonListener);
-		aboutBtn.setOnClickListener(setupButtonListener);
+//		aboutBtn.setOnClickListener(setupButtonListener);
 		addSeniorBtn.setOnClickListener(setupButtonListener);
 		regSeniorBtn.setOnClickListener(setupButtonListener);
 		accidentBtn.setOnClickListener(setupButtonListener);
@@ -94,7 +98,7 @@ public class SetupActivity extends Activity {
 		seniorsInfoBtn.setText(getText(R.string.setup_seniors_info_btntext));
 		emeInfoBtn.setText(getText(R.string.setup_emergence_info_btntext));
 		commonSetBtn.setText(getText(R.string.setup_common_info_btntext));
-		aboutBtn.setText(getText(R.string.setup_about_btntext));
+//		aboutBtn.setText(getText(R.string.setup_about_btntext));
 		addSeniorBtn.setText(getText(R.string.seniorinfo_add_senior_btn_text));
 		regSeniorBtn.setText(getText(R.string.seniorinfo_reg_senior_btn_text));
 		accidentBtn.setText(getText(R.string.setup_accident_btntext));
@@ -106,7 +110,8 @@ public class SetupActivity extends Activity {
 
 		// !!!! ≤‚ ‘π¶ƒ‹
 		Button catchLogcat = (Button) findViewById(R.id.setup_catch_logcat);
-
+		catchLogcat.setVisibility(View.GONE);
+		
 		catchLogcat.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -192,9 +197,9 @@ public class SetupActivity extends Activity {
 			case R.id.setup_common_info_btn:
 				intent.setClass(SetupActivity.this, CommonSetupActivity.class);
 				break;
-			case R.id.setup_about_btn:
-				intent.setClass(SetupActivity.this, AboutActivity.class);
-				break;
+			// case R.id.setup_about_btn:
+			// intent.setClass(SetupActivity.this, AboutActivity.class);
+			// break;
 			case R.id.setup_add_senior_btn:
 				intent.setClass(SetupActivity.this, AddSeniorActivity.class);
 				break;
@@ -202,10 +207,10 @@ public class SetupActivity extends Activity {
 				intent.setClass(SetupActivity.this, RegisterSeniorActivity.class);
 				break;
 			case R.id.setup_accident_info_btn:
-				intent.setClass(SetupActivity.this, AccidentHistoryActivity.class);
+				intent.setClass(SetupActivity.this, SOSHistoryActivity.class);
 				break;
 			case R.id.setup_sos_info_btn:
-				intent.setClass(SetupActivity.this, SOSHistoryActivity.class);
+				intent.setClass(SetupActivity.this, AccidentHistoryActivity.class);
 				break;
 			}
 			SetupActivity.this.startActivity(intent);
@@ -222,13 +227,11 @@ public class SetupActivity extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		StatesIntent.sendCloseState(SetupActivity.this, ServiceCore.ACTIVITY_TYPE_SETUP);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		StatesIntent.sendAliveState(SetupActivity.this, ServiceCore.ACTIVITY_TYPE_SETUP);
 	}
 
 }

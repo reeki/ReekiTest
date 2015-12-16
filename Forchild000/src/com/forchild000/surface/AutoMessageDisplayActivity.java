@@ -140,14 +140,12 @@ public class AutoMessageDisplayActivity extends AliveBaseActivity {
 	protected void onPause() {
 		super.onPause();
 
-		StatesIntent.sendCloseState(this, ServiceCore.ACTIVITY_TYPE_AUTOMESSAGEDISPLAY);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 
-		StatesIntent.sendAliveState(this, ServiceCore.ACTIVITY_TYPE_AUTOMESSAGEDISPLAY);
 
 		displayList.clearAllSlideButton();
 		nextAlarmId = 0;

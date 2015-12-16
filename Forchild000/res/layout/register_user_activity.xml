@@ -101,7 +101,8 @@
             android:id="@+id/reguser_cardid_edit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/reguser_cardid_title" />
+            android:hint="@string/reguser_cardid_title"
+             />
 
         <View
             android:layout_width="fill_parent"

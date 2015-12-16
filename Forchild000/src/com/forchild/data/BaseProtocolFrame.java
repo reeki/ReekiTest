@@ -44,6 +44,7 @@ public class BaseProtocolFrame implements Serializable {
 	public static final int DELETE_SENIOR = 22;
 	public static final int ADD_SENIOR = 23;
 	public static final int REQUEST_SEND_AUTO_MESSAGE = 24;
+	public static final int REQUEST_CHANGE_CHILD_PASSWORD = 25;
 	public static final int LOGIN_CHILD = 31;
 	public static final int LOGOUT_CHILD = 32;
 	public static final int REGISTER_CHILD = 30;
@@ -67,6 +68,7 @@ public class BaseProtocolFrame implements Serializable {
 	public static final int REASON_EXCEEDS_TASKNUMBER_LIMITED = 1;
 	public static final int REASON_NO_RESPONSE = 2;
 	public static final int REASON_LOGOUT = 3;
+
 
 
 

@@ -56,7 +56,7 @@ public class LoginActivity extends AliveBaseActivity {
 
 		btnHandler = new Handler(btnClickable);
 		msgHandler = new Handler(responseProcess);
-		timer = new Timer();
+		
 
 		phoneNum = (EditText) findViewById(R.id.login_input);
 		password = (EditText) findViewById(R.id.senior_id);
@@ -90,8 +90,9 @@ public class LoginActivity extends AliveBaseActivity {
 		public void onClick(View arg0) {
 			switch (arg0.getId()) {
 			case R.id.login_btn:
+				timer = new Timer();
 				timer.schedule(new timerTask(), 1);
-				loginBtn.setClickable(false);
+				loginBtn.setClickable(true);
 				String phoneNumStr = phoneNum.getText().toString();
 				String passwordStr = password.getText().toString();
 
@@ -118,6 +119,8 @@ public class LoginActivity extends AliveBaseActivity {
 				LoginActivity.this.startActivity(regIntent);
 				break;
 			case R.id.login_obtain_password:
+				Intent changepwIntent = new Intent(LoginActivity.this, ChangePasswordActivity.class);
+				LoginActivity.this.startActivity(changepwIntent);
 				break;
 			}
 
@@ -134,7 +137,7 @@ public class LoginActivity extends AliveBaseActivity {
 				if (msg.obj instanceof RequestLoginChild) {
 					RequestLoginChild rlc = (RequestLoginChild) msg.obj;
 					Log.e("LoginActivity.responseProcess", "get response, type is RequestLoginChild, req==" + rlc.getReq());
-					loginBtn.setClickable(true);
+					loginBtn.setClickable(false);
 					if (mDialog.isShowing()) {
 						mDialog.cancel();
 					}
@@ -221,19 +224,11 @@ public class LoginActivity extends AliveBaseActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		Intent toCloseIntent = new Intent();
-		toCloseIntent.setAction("com.forchild.isClose");
-		toCloseIntent.putExtra("type", ServiceCore.ACTIVITY_TYPE_LOGIN);
-		this.sendBroadcast(toCloseIntent);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Intent toLiveIntent = new Intent();
-		toLiveIntent.setAction("com.forchild.isAlive");
-		toLiveIntent.putExtra("type", ServiceCore.ACTIVITY_TYPE_LOGIN);
-		this.sendBroadcast(toLiveIntent);
 	}
 
 }

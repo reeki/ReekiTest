@@ -326,13 +326,11 @@ public class SeniorsInfoActivity extends AliveBaseActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		StatesIntent.sendCloseState(this, ServiceCore.ACTIVITY_TYPE_SENIORSINFOACTIVITY);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		StatesIntent.sendAliveState(this, ServiceCore.ACTIVITY_TYPE_SENIORSINFOACTIVITY);
 		this.reflushUI();
 
 	}

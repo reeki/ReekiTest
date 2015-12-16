@@ -303,20 +303,20 @@ public class NetworkHelper extends Thread {
 				if (!(helperResult != null && (helperResult.getOperation() & NetworkHelperResult.OPERATION_ADDTASK) == 0)) {
 					helperResult = networkHelper.onAddTask(context, nowTask, taskDeque, helperResult);
 				}
-				Log.e("NetworkHelper", "onAddTask执行完成");
+//				Log.e("NetworkHelper", "onAddTask执行完成");
 
 				if (!(helperResult != null && !helperResult.getAddTaskPermission())) {
 					if (taskDeque.isEmpty()) {
 						isDequeEmpty = true;
 					} else {
 						nowTask = taskDeque.pollFirst();
-						Log.e("NetworkHelper", "nowTask == " + nowTask.getType());
+//						Log.e("NetworkHelper", "nowTask == " + nowTask.getType());
 
 						if (helperResult != null) {
 							helperResult.setTask(nowTask);
 						}
 
-						Log.e("NetworkHelper.run", "task deque length is " + taskDeque.size());
+//						Log.e("NetworkHelper.run", "task deque length is " + taskDeque.size());
 					}
 				} else {
 					if (helperResult != null) {
@@ -337,17 +337,17 @@ public class NetworkHelper extends Thread {
 			} else {
 				if (!(helperResult != null && (helperResult.getOperation() & NetworkHelperResult.OPERATION_PREEXECUTE) == 0)) {
 					helperResult = networkHelper.onPreExecute(nowTask, taskDeque, context, helperResult);
-					Log.e("NetworkHelper", "预处理完成");
+//					Log.e("NetworkHelper", "预处理完成");
 				}
 
 				if (!(helperResult != null && (helperResult.getOperation() & NetworkHelperResult.OPERATION_EXECUTE) == 0)) {
 					helperResult = this.execute(nowTask, helperResult);
-					Log.e("NetworkHelper", "执行完成");
+//					Log.e("NetworkHelper", "执行完成");
 				}
 
 				if (!(helperResult != null && (helperResult.getOperation() & NetworkHelperResult.OPERATION_PREPROCESS) == 0)) {
 					helperResult = networkHelper.onPreProcess(nowTask, taskDeque, context, helperResult);
-					Log.e("NetworkHelper", "后处理1理完成");
+//					Log.e("NetworkHelper", "后处理1理完成");
 				}
 
 				// 任务恢复
@@ -362,7 +362,7 @@ public class NetworkHelper extends Thread {
 
 				if (!(helperResult != null && (helperResult.getOperation() & NetworkHelperResult.OPERATION_PROCESS) == 0)) {
 					helperResult = networkHelper.onDoProcess(nowTask, taskDeque, context, helperResult);
-					Log.e("NetworkHelper", "后处理2完成");
+//					Log.e("NetworkHelper", "后处理2完成");
 				}
 
 				if (!(helperResult != null && (helperResult.getOperation() & NetworkHelperResult.OPERATION_SYNCPROCESS) > 0)) {

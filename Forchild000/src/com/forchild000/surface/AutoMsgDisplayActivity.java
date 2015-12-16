@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleAdapter.ViewBinder;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.forchild.data.MessageFrame;
 import com.forchild.data.SeniorInfoAutoMessage;
@@ -52,8 +53,6 @@ public class AutoMsgDisplayActivity extends AliveBaseActivity {
 
 		preference = new Preferences(this);
 		this.oid = getIntent().getIntExtra("oid", -1);
-
-		this.getMsg();
 
 		swipeListView = (SwipeListView) findViewById(R.id.automsgdsp_list);
 		adapter = new SimpleAdapter(this, msgList, R.layout.message_list_content, new String[] { "figure", "name", "date", "time", "content",
@@ -112,9 +111,22 @@ public class AutoMsgDisplayActivity extends AliveBaseActivity {
 					Log.e("AutoMsgDisplayActivity", "消息被点击,但超出范围" + position + "， 队列长度:" + msgContentList.size());
 					return;
 				}
+
+				SeniorInfoAutoMessage siam = msgContentList.get(position);
+				Calendar cal = Calendar.getInstance();
+				cal.set(siam.getYear(), siam.getMonth(), siam.getDay(), siam.getHour(), siam.getMinute());
+
+				if (cal.getTimeInMillis() <= System.currentTimeMillis()) {
+					Toast.makeText(AutoMsgDisplayActivity.this, getText(R.string.automsg_message_pasted), Toast.LENGTH_SHORT).show();
+					getMsg();
+					adapter.notifyDataSetChanged();
+					swipeListView.closeOpenedItems();
+					return;
+				}
+
 				Intent intent = new Intent(AutoMsgDisplayActivity.this, AutoMsgEditActivity.class);
 				intent.putExtra("type", EDIT_MESSAGE_ACTIVITY_REQUEST);
-				intent.putExtra("content", msgContentList.get(position));
+				intent.putExtra("content", siam);
 				AutoMsgDisplayActivity.this.startActivityForResult(intent, EDIT_MESSAGE_ACTIVITY_REQUEST);
 			}
 
@@ -175,6 +187,9 @@ public class AutoMsgDisplayActivity extends AliveBaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		this.getMsg();
+		adapter.notifyDataSetChanged();
+		swipeListView.closeOpenedItems();
 	}
 
 	@Override
@@ -256,6 +271,7 @@ public class AutoMsgDisplayActivity extends AliveBaseActivity {
 			Log.e("AutoMsgDisplayActivity.getMsg", siam.toString());
 			msgList.add(msg);
 			msgContentList.add(siam);
+
 		}
 
 		messageCursor.close();

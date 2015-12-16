@@ -1,5 +1,6 @@
 package com.forchild.server;
 
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 import android.app.AlarmManager;
@@ -29,7 +30,7 @@ public class AutoMsgHelper {
 		if (time < System.currentTimeMillis()) {
 			time += ONE_DAY_IN_MILLIS;
 		}
-		
+
 		alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, time, ONE_DAY_IN_MILLIS, pi);
 		Log.e("AutoMsgHelper", "已设置循环消息, id = " + id + "时间:" + hour + ":" + minute);
 	}
@@ -53,7 +54,14 @@ public class AutoMsgHelper {
 		if (time <= System.currentTimeMillis()) {
 			return false;
 		}
+
+		long a = System.currentTimeMillis() - time;
+
+		Log.e("AutoMsgHelper", "time:" + a);
+
 		alarmManager.set(AlarmManager.RTC, time, pi);
+		Timestamp ts = new Timestamp(time);
+		Log.e("AutoMsgHelper", "已设置一次性消息, id = " + id + "时间:" + year + "-" + month + "-" + day + " " + hour + ":" + minute + ", cal" + ts.toString());
 		return true;
 	}
 

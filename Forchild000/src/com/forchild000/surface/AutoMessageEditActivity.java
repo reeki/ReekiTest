@@ -236,13 +236,11 @@ public class AutoMessageEditActivity extends AliveBaseActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		StatesIntent.sendCloseState(this, ServiceCore.ACTIVITY_TYPE_AUTOMESSAGEEDIT);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		StatesIntent.sendAliveState(this, ServiceCore.ACTIVITY_TYPE_AUTOMESSAGEEDIT);
 
 	}
 

@@ -10,7 +10,7 @@ import com.forchild.server.Preferences;
 import com.forchild.server.ServiceStates;
 
 public class CommonSetupActivity extends AliveBaseActivity {
-	private SetupButton passwordChangeBtn, seniorPhoneChangeBtn, clearBtn, logoutBtn;
+	private SetupButton passwordChangeBtn, seniorPhoneChangeBtn, clearBtn, logoutBtn, aboutBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,9 @@ public class CommonSetupActivity extends AliveBaseActivity {
 		seniorPhoneChangeBtn = (SetupButton) findViewById(R.id.common_seniorphone_change_btn);
 		clearBtn = (SetupButton) findViewById(R.id.common_clean_btn);
 		logoutBtn = (SetupButton) findViewById(R.id.common_logout_btn);
+		aboutBtn = (SetupButton) findViewById(R.id.common_about_btn);
+		
+		seniorPhoneChangeBtn.setVisibility(View.GONE);
 
 		passwordChangeBtn.setFrame(SetupButton.BOTTOM_FRAME);
 
@@ -30,11 +33,13 @@ public class CommonSetupActivity extends AliveBaseActivity {
 		seniorPhoneChangeBtn.setText(getText(R.string.common_seniorphone_change_button_text));
 		clearBtn.setText(getText(R.string.common_clear_button_text));
 		logoutBtn.setText(getText(R.string.logout));
-
+		aboutBtn.setText(getText(R.string.setup_about_btntext));
+		
 		passwordChangeBtn.setOnClickListener(commonSetupButtonListener);
 		seniorPhoneChangeBtn.setOnClickListener(commonSetupButtonListener);
 		clearBtn.setOnClickListener(commonSetupButtonListener);
 		logoutBtn.setOnClickListener(commonSetupButtonListener);
+		aboutBtn.setOnClickListener(commonSetupButtonListener);
 
 	}
 
@@ -47,6 +52,7 @@ public class CommonSetupActivity extends AliveBaseActivity {
 			switch (v.getId()) {
 			case R.id.common_password_change_btn:
 				intent.setClass(CommonSetupActivity.this, ChangePasswordActivity.class);
+				intent.putExtra("type", ChangePasswordActivity.CHANGETYPE_LOGIN);
 				CommonSetupActivity.this.startActivity(intent);
 				break;
 			case R.id.common_seniorphone_change_btn:
@@ -62,6 +68,10 @@ public class CommonSetupActivity extends AliveBaseActivity {
 				intent.setClass(CommonSetupActivity.this, WarningActivity.class);
 				intent.putExtra("type", WarningActivity.WARNING_TYPE_LOGOUT);
 				CommonSetupActivity.this.startActivityForResult(intent, WarningActivity.WARNING_TYPE_LOGOUT);
+				break;
+			case R.id.common_about_btn:
+				Intent aboutIntent = new Intent(CommonSetupActivity.this, AboutActivity.class);
+				CommonSetupActivity.this.startActivity(aboutIntent);
 				break;
 			default:
 				break;

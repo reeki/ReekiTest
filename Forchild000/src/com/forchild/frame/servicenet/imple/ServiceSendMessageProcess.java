@@ -47,15 +47,9 @@ public class ServiceSendMessageProcess implements ServiceNetworkResultHandler {
 		if (source != null && source instanceof RequestSendMessage) {
 			RequestSendMessage rsm = (RequestSendMessage) source;
 			MessageFrame msg = rsm.getMsgEntity();
-			if (msg != null) {
-				DatabaseHelper dbHelper = new DatabaseHelper(context);
-				ContentValues values = new ContentValues();
-				values.put("send_state", msg.getState());
-				dbHelper.updateMessage(values, msg.getLoginId(), msg.getDate(), msg.getUserMsgType());
-			}
+			
 			switch (source.getReq()) {
 			case BaseProtocolFrame.RESPONSE_TYPE_OKAY:
-
 				break;
 			case BaseProtocolFrame.RESPONSE_TYPE_NO_LOGIN:
 				Toast.makeText(context, context.getText(R.string.response_error_no_login), Toast.LENGTH_SHORT).show();
@@ -77,7 +71,16 @@ public class ServiceSendMessageProcess implements ServiceNetworkResultHandler {
 			default:
 				break;
 			}
-
+			
+			if (msg != null) {
+				if(msg.getState() == MessageFrame.SENDSTATE_SENDING) {
+					msg.setState(MessageFrame.SENDSTATE_FAULT);
+				}
+				DatabaseHelper dbHelper = new DatabaseHelper(context);
+				ContentValues values = new ContentValues();
+				values.put("send_state", msg.getState());
+				dbHelper.updateMessage(values, msg.getLoginId(), msg.getDate(), msg.getUserMsgType());
+			}
 		} else {
 			return -100;
 		}

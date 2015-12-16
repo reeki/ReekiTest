@@ -8,6 +8,7 @@ public class MessageHelp extends MessageFrame {
 	protected double lo = BaseProtocolFrame.DOUBLE_INITIATION;
 	protected double la = BaseProtocolFrame.DOUBLE_INITIATION;
 	protected int acc = BaseProtocolFrame.INT_INITIATION;
+	protected int sosId;
 	
 	public MessageHelp() {
 		super.type = MessageFrame.ACCIDENT_HELP_MESSAGE;
@@ -17,11 +18,12 @@ public class MessageHelp extends MessageFrame {
 		super(MessageFrame.SENIORS_ACCIDENT_MESSAGE, date, from, uname);
 	}
 	
-	public MessageHelp(int type, long date, int from, String uname, int acc, double lo, double la) {
+	public MessageHelp(int type, long date, int from, String uname, int acc, double lo, double la, int sosId) {
 		super(MessageFrame.SENIORS_ACCIDENT_MESSAGE, date, from, uname);
 		this.acc = acc;
 		this.lo = lo;
 		this.la = la;
+		this.sosId = sosId;
 	}
 	
 	public void setAcc(int acc) {
@@ -46,5 +48,13 @@ public class MessageHelp extends MessageFrame {
 	
 	public double getLa() {
 		return this.la;
+	}
+
+	public void setSosId(int sosId) {
+		this.sosId = sosId;
+	}
+	
+	public int getSosId() {
+		return this.sosId;
 	}
 }

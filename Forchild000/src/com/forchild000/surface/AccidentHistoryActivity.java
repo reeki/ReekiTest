@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -37,9 +38,9 @@ public class AccidentHistoryActivity extends AliveBaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.seniors_display_activity);
+		setContentView(R.layout.accident_history_activity);
 
-		contentList = (SwipeListView) findViewById(R.id.seniorsdisplay_list);
+		contentList = (SwipeListView) findViewById(R.id.accident_list);
 		dbHelper = new DatabaseHelper(this);
 
 		adapter = new SimpleAdapter(this, accDispList, R.layout.sos_list_content, new String[] { "name", "content", "time", "remove" }, new int[] {
@@ -49,7 +50,7 @@ public class AccidentHistoryActivity extends AliveBaseActivity {
 			@Override
 			public boolean setViewValue(View view, final Object data, String textRepresentation) {
 				switch (view.getId()) {
-				case R.id.automsgdsp_list_remove_btn:
+				case R.id.sos_list_remove_btn:
 					view.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View v) {
@@ -67,13 +68,13 @@ public class AccidentHistoryActivity extends AliveBaseActivity {
 						}
 					});
 					break;
-				case R.id.automsgdsp_list_figure:
-					((ImageView) view).setImageResource((Integer) data);
-					break;
-				case R.id.automsgdsp_list_name_text:
+				case R.id.sos_list_time_text:
 					((TextView) view).setText((String) data);
 					break;
-				case R.id.automsgdsp_list_content_text:
+				case R.id.sos_list_name_text:
+					((TextView) view).setText((String) data);
+					break;
+				case R.id.sos_list_content_text:
 					((TextView) view).setText((String) data);
 					break;
 				}
@@ -135,7 +136,9 @@ public class AccidentHistoryActivity extends AliveBaseActivity {
 	protected List<Map<String, Object>> initData() {
 		accDispList.clear();
 		accList.clear();
-		Cursor accCursor = dbHelper.getAccidentMessage(null, "belongs = ?", new String[] { ServiceCore.getLoginId() });
+		// Cursor accCursor = dbHelper.getAccidentMessage(null, "belongs = ?",
+		// new String[] { ServiceCore.getLoginId() });
+		Cursor accCursor = dbHelper.getAccidentMessage(null, null, null);
 		while (accCursor.moveToNext()) {
 			long date = accCursor.getLong(accCursor.getColumnIndex("date"));
 			double la = accCursor.getDouble(accCursor.getColumnIndex("la"));
@@ -143,8 +146,11 @@ public class AccidentHistoryActivity extends AliveBaseActivity {
 			String uname = accCursor.getString(accCursor.getColumnIndex("uname"));
 			String address = accCursor.getString(accCursor.getColumnIndex("address"));
 			int id = accCursor.getInt(accCursor.getColumnIndex("id"));
+			int sosId = accCursor.getInt(accCursor.getColumnIndex("sos_id"));
+			int oid = accCursor.getInt(accCursor.getColumnIndex("oid"));
 
-			AccidentInfo accBuff = new AccidentInfo(id, lo, la, date, uname);
+			AccidentInfo accBuff = new AccidentInfo(id, lo, la, date, uname, oid, sosId);
+			accBuff.setAddress(address);
 			Map<String, Object> accMap = new HashMap<String, Object>();
 			accMap.put("name", uname);
 			accMap.put("content", address);
@@ -153,6 +159,8 @@ public class AccidentHistoryActivity extends AliveBaseActivity {
 			accMap.put("date", date);
 			accDispList.add(accMap);
 			accList.add(accBuff);
+
+			Log.e("AccidentHistory", accBuff.toString() + accCursor.getString(accCursor.getColumnIndex("belongs")) + address);
 		}
 		return accDispList;
 	}

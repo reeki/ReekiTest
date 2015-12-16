@@ -66,7 +66,6 @@ public class MsgPersonActivity extends AliveBaseActivity {
 		initView();
 
 		msgHandler = new Handler(msgCallback);
-		
 
 		IntentFilter receiverFilter = new IntentFilter();
 		receiverFilter.addAction("com.forchild.msg.SEND_AUTO_MESSAGE");
@@ -108,6 +107,7 @@ public class MsgPersonActivity extends AliveBaseActivity {
 	}
 
 	public void initData() {
+		mDataArrays.clear();		
 		Cursor msgCursor = dbHelper.getMessage(null, "oid = ? AND login_id = ?", new String[] { String.valueOf(oid), ServiceCore.getLoginId() });
 
 		while (msgCursor.moveToNext()) {
@@ -125,8 +125,8 @@ public class MsgPersonActivity extends AliveBaseActivity {
 			mDataArrays.add(entity);
 			Log.e("MsgPersonActivity.initData", "message entity:" + entity.toString());
 		}
-		
-		if(msgCursor.getCount() > 0) {
+
+		if (msgCursor.getCount() > 0) {
 			mAdapter.notifyDataSetChanged();
 		}
 		msgCursor.close();
@@ -148,6 +148,7 @@ public class MsgPersonActivity extends AliveBaseActivity {
 					case MessageFrame.USERMESSAGETYPE_AUTO_MEDICAL_MESSAGE:
 					case MessageFrame.USERMESSAGETYPE_AUTO_ONEOFF_MESSAGE:
 						msg.setLastTime(lastTime);
+
 						mDataArrays.add(msg);
 						mAdapter.notifyDataSetChanged();
 						break;
@@ -158,6 +159,7 @@ public class MsgPersonActivity extends AliveBaseActivity {
 			}
 
 			if (intent.getAction().equals("com.forchild.msg.SEND_AUTO_MESSAGE_FINISH")) {
+
 				mAdapter.notifyDataSetChanged();
 			}
 
@@ -179,6 +181,11 @@ public class MsgPersonActivity extends AliveBaseActivity {
 			case ServiceCore.NETWORK_RESPONSE:
 				if (msg.obj instanceof RequestSendMessage) {
 					Log.e("MsgPersonActivity", "已收到发送结束通知");
+					RequestSendMessage rsm = (RequestSendMessage) msg.obj;
+					MessageFrame mf = rsm.getMsgEntity();
+					if (mf != null && mf.getState() == MessageFrame.SENDSTATE_SENDING) {
+						mf.setState(MessageFrame.SENDSTATE_FAULT);
+					}
 					mAdapter.notifyDataSetChanged();
 				}
 				break;
@@ -286,6 +293,7 @@ public class MsgPersonActivity extends AliveBaseActivity {
 	protected void onResume() {
 		super.onResume();
 		ServiceCore.setMsgActivityOid(oid);
+		
 		initData();
 		Log.e("MsgPersonActivity", "listview count:" + mListView.getCount() + ", adapter count:" + mAdapter.getCount());
 		mListView.setSelection(mListView.getCount() == 0 ? 0 : mListView.getCount() - 1);

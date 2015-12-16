@@ -3,7 +3,6 @@ package com.forchild.data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class RequestAddSenior extends RequestBaseSidFrame {
 
 	/**
@@ -11,7 +10,7 @@ public class RequestAddSenior extends RequestBaseSidFrame {
 	 */
 	private static final long serialVersionUID = -8634547910954997232L;
 
-	protected String cardId;
+	protected String mPhone;
 	protected String phone;
 
 	public RequestAddSenior() {
@@ -19,19 +18,19 @@ public class RequestAddSenior extends RequestBaseSidFrame {
 		super.url = NetAddress.HOST + NetAddress.ADD_SENIOR;
 	}
 
-	public RequestAddSenior(String sid, String cardId, String phone) {
+	public RequestAddSenior(String sid, String phone, String mPhone) {
 		this();
 		this.sid = sid;
-		this.cardId = cardId;
+		this.mPhone = mPhone;
 		this.phone = phone;
 	}
 
-	public void setCardid(String cardId) {
-		this.cardId = cardId;
+	public void setMPhone(String mPhone) {
+		this.mPhone = mPhone;
 	}
 
-	public String getCardid() {
-		return this.cardId;
+	public String getMPhone() {
+		return this.mPhone;
 	}
 
 	public void setPhone(String phone) {
@@ -47,8 +46,8 @@ public class RequestAddSenior extends RequestBaseSidFrame {
 		JSONObject result = new JSONObject();
 		try {
 			result.put("sid", sid);
-			result.put("cardid", cardId);
-			result.put("mphone", phone);
+			result.put("phone", phone);
+			result.put("mphone", mPhone);
 		} catch (JSONException e) {
 			e.printStackTrace();
 			result = null;

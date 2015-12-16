@@ -1,7 +1,9 @@
 package com.forchild000.surface;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -32,10 +34,11 @@ import com.forchild.data.LocationInfo;
 import com.forchild.data.RequestSeniorTrack;
 import com.forchild.data.SeniorInfoSimple;
 import com.forchild.server.ServiceStates;
+import com.forchild.server.TimeFormat;
 import com.forchild000.surface.KCalendar.OnCalendarClickListener;
 
 public class ParentsTrackActivity extends MapBaseActivity implements LocationSource {
-	protected static final double LAT_LNG_EXCURSION_MIN = 0.00001d;
+	protected static final double LAT_LNG_EXCURSION_MIN = 0.0003d;
 	private MapView mapView;
 	private AMap aMap;
 	private TextView centerText, leftText, rightText;
@@ -185,24 +188,100 @@ public class ParentsTrackActivity extends MapBaseActivity implements LocationSou
 						case BaseProtocolFrame.RESPONSE_TYPE_OKAY:
 							if (rst != null && rst.getLocationList().size() > 0) {
 								PolylineOptions polyLine = new PolylineOptions();
-								double la = 0.0d;
-								double lo = 0.0d;
-								MarkerOptions lastMarker = new MarkerOptions();
-								for (LocationInfo info : rst.getLocationList()) {
-									if (Math.abs(la - info.getLatitude()) > LAT_LNG_EXCURSION_MIN
-											|| Math.abs(lo - info.getLongitude()) > LAT_LNG_EXCURSION_MIN) {
-										polyLine.add(new LatLng(info.getLatitude(), info.getLongitude()));
-										la = info.getLatitude();
-										lo = info.getLongitude();
-									}
+								// double la = 0.0d;
+								// double lo = 0.0d;
+								// MarkerOptions lastMarker = new
+								// MarkerOptions();
+								// for (LocationInfo info :
+								// rst.getLocationList()) {
+								// if (Math.abs(la - info.getLatitude()) >
+								// LAT_LNG_EXCURSION_MIN
+								// || Math.abs(lo - info.getLongitude()) >
+								// LAT_LNG_EXCURSION_MIN) {
+								// polyLine.add(new LatLng(info.getLatitude(),
+								// info.getLongitude()));
+								// la = info.getLatitude();
+								// lo = info.getLongitude();
+								// }
+								//
+								// lastMarker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+								// lastMarker.position(new LatLng(la,
+								// lo)).visible(true);
+								// }
+								// polyLine.width(10).geodesic(true).color(Color.RED);
+								// aMap.addPolyline(polyLine);
+								// aMap.addMarker(lastMarker);
+								// aMap.moveCamera(CameraUpdateFactory.changeLatLng(new
+								// LatLng(la, lo)));
+								//
+								LocationInfo locationBuff = rst.getLocationList().get(0);
+								double lastLa = locationBuff.getLatitude();
+								double lastLo = locationBuff.getLongitude();
+								long durationTime = 0;
+								long lastMarkTime = locationBuff.getDate();
 
-									lastMarker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-									lastMarker.position(new LatLng(la, lo)).visible(true);
+								List<MarkerOptions> markList = new ArrayList<MarkerOptions>();
+								MarkerOptions marker = null;
+								for (LocationInfo info : rst.getLocationList()) {
+									if (Math.abs(lastLa - info.getLatitude()) > LAT_LNG_EXCURSION_MIN
+											|| Math.abs(lastLo - info.getLongitude()) > LAT_LNG_EXCURSION_MIN) {
+
+										StringBuffer titleBuff = new StringBuffer();
+										titleBuff.append("抵达时间:");
+										titleBuff.append(TimeFormat.getDisplayDate(lastMarkTime));
+										if (durationTime != 0) {
+											titleBuff.append("\n");
+											titleBuff.append("停留时间:");
+											titleBuff.append(TimeFormat.msToTime(durationTime));
+										}
+
+										marker = new MarkerOptions();
+										marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+										marker.title(titleBuff.toString());
+										marker.position(new LatLng(lastLa, lastLo)).visible(true);
+										markList.add(marker);
+
+										lastLa = info.getLatitude();
+										lastLo = info.getLongitude();
+										lastMarkTime = info.getDate();
+										durationTime = 0;
+									} else {
+										durationTime = info.getDate() - lastMarkTime;
+									}
+								}
+
+								// 打最后一个点
+								StringBuffer titleBuff = new StringBuffer();
+								titleBuff.append("最近位置，抵达时间:");
+								titleBuff.append(TimeFormat.getDisplayDate(lastMarkTime));
+								if (durationTime != 0) {
+									titleBuff.append("\n");
+									titleBuff.append("停留时间:");
+									titleBuff.append(TimeFormat.msToTime(durationTime));
+								}
+
+								marker = new MarkerOptions();
+								marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+								marker.title(titleBuff.toString());
+								marker.position(new LatLng(lastLa, lastLo)).visible(true);
+								markList.add(marker);
+
+								// 清除第一个点的title中的抵达时间
+								MarkerOptions firstMark = markList.get(0);
+								String[] firstTitleBuff = firstMark.getTitle().split("\\\n");
+								if (firstTitleBuff.length > 1) {
+									firstMark.title(firstTitleBuff[1]);
+								}
+
+								for (MarkerOptions mo : markList) {
+									aMap.addMarker(mo);
+									Log.e("track", mo.getTitle() + "la:" + mo.getPosition().latitude + ", lo:" + mo.getPosition().longitude);
+									polyLine.add(mo.getPosition());
 								}
 								polyLine.width(10).geodesic(true).color(Color.RED);
 								aMap.addPolyline(polyLine);
-								aMap.addMarker(lastMarker);
-								aMap.moveCamera(CameraUpdateFactory.changeLatLng(new LatLng(la, lo)));
+								aMap.moveCamera(CameraUpdateFactory.changeLatLng(new LatLng(lastLa, lastLo)));
+
 							}
 							break;
 						}

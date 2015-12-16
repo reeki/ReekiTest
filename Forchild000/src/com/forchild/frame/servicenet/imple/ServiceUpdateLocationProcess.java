@@ -107,19 +107,36 @@ public class ServiceUpdateLocationProcess implements ServiceNetworkResultHandler
 							accidentBroadcastIntent.setAction("com.forchild.messages.acc.display");
 							accidentBroadcastIntent.putExtra("bean", ma);
 							context.sendBroadcast(accidentBroadcastIntent);
-							dbHelper.close();
 							Cursor accMsgCursor = dbHelper.getAccidentMessage();
 							int id = accMsgCursor.getCount();
+
+							Cursor seniorCursor = dbHelper.getSeniorInfo(new String[] { "nick", "name", "oid" }, "oid = ?",
+									new String[] { ma.getOid() + "" });
+							String name = new String();
+							if (seniorCursor.moveToNext()) {
+								String nickBuff = seniorCursor.getString(seniorCursor.getColumnIndex("nick"));
+								String nameBuff = seniorCursor.getString(seniorCursor.getColumnIndex("name"));
+								if (nickBuff != null && nickBuff.length() > 0) {
+									name = nickBuff;
+								} else if (name != null) {
+									name = nameBuff;
+								}
+							}
+							ma.setUname(name);
+
 							ContentValues cv = new ContentValues();
-							cv.put("id", id);
+							cv.put("id", ++id);
 							cv.put("acc", ma.getAcc());
 							cv.put("lo", ma.getLo());
 							cv.put("la", ma.getLa());
 							cv.put("date", ma.getDate());
 							cv.put("uname", ma.getUname());
 							cv.put("address", ma.getAddress());
+							cv.put("sos_id", ma.getSosId());
+							cv.put("belongs", ServiceCore.getLoginId());
+							cv.put("oid", ma.getOid());
 							dbHelper.addAccidentMessage(cv);
-							// cursor.close();
+							accMsgCursor.close();
 							dbHelper.close();
 							// context.startActivity(msIntent);
 
@@ -127,23 +144,27 @@ public class ServiceUpdateLocationProcess implements ServiceNetworkResultHandler
 							// Log.e("ServiceUpdateLocationProcess.process",
 							// "无对应关注人" + ma.getOldid());
 							// }
-							AccidentInfo accInfo = new AccidentInfo(id, ma.getLo(), ma.getLa(), ma.getDate(), ma.getUname());
+							AccidentInfo accInfo = new AccidentInfo(id, ma.getLo(), ma.getLa(), ma.getDate(), ma.getUname(), ma.getOid(),
+									ma.getSosId());
 							accInfo.setAddress(ma.getAddress());
 							Intent accNotifiIntent = new Intent(sc, AccidentDisplayActivity.class);
 							accNotifiIntent.putExtra("type", AccidentDisplayActivity.ACCIDENT_TYPE_ACCIDENT);
 							accNotifiIntent.putExtra("accident_info", accInfo);
-							PendingIntent accPIntent = PendingIntent.getActivity(sc, 0, accNotifiIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+							PendingIntent accPIntent = PendingIntent.getActivity(sc, ma.getSosId(), accNotifiIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 							NotificationManager mNotifiManager = (NotificationManager) sc.getSystemService(Context.NOTIFICATION_SERVICE);
 							NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(sc);
 							mBuilder.setContentTitle(sc.getText(R.string.servicecore_accmsg_title))
 									.setContentText(
 											sc.getText(R.string.warning_accident_message_content_front) + accInfo.getName()
 													+ sc.getText(R.string.warning_accident_message_content_mid) + accInfo.getAddress()
-													+ sc.getText(R.string.warning_accident_message_content_behind)).setContentIntent(accPIntent)
-									.setFullScreenIntent(accPIntent, true)
+													+ sc.getText(R.string.warning_accident_message_content_behind))
+									.setContentIntent(accPIntent)
 									.setTicker(sc.getText(R.string.servicecore_accmsg_title) + ":" + accInfo.getAddress())
-									.setWhen(System.currentTimeMillis()).setPriority(NotificationCompat.PRIORITY_DEFAULT).setAutoCancel(true)
-									.setOngoing(false).setDefaults(Notification.DEFAULT_VIBRATE).setSmallIcon(R.drawable.ic_launcher);
+									.setWhen(System.currentTimeMillis()).setPriority(NotificationCompat.PRIORITY_DEFAULT)
+									.setAutoCancel(true)
+									.setOngoing(false)
+									.setDefaults(Notification.DEFAULT_ALL)
+									.setSmallIcon(R.drawable.ic_launcher);
 							mNotifiManager.notify(id, mBuilder.build());
 						}
 						break;
@@ -154,21 +175,23 @@ public class ServiceUpdateLocationProcess implements ServiceNetworkResultHandler
 							sosBroadcastIntent.setAction("com.forchild.messages.sos.display");
 							sosBroadcastIntent.putExtra("bean", mh);
 							sc.sendBroadcast(sosBroadcastIntent);
-							Cursor sosMsgCursor = dbHelper.getAccidentMessage();
+							Cursor sosMsgCursor = dbHelper.getSOSMessage();
 							int sosId = sosMsgCursor.getCount();
 							sosMsgCursor.close();
 							ContentValues sosValues = new ContentValues();
-							sosValues.put("id", sosId);
+							sosValues.put("id", ++sosId);
 							sosValues.put("acc", mh.getAcc());
 							sosValues.put("lo", mh.getLo());
 							sosValues.put("la", mh.getLa());
 							sosValues.put("date", mh.getDate());
-							sosValues.put("uname", mh.getUname());
-							sosValues.put("address", mh.getCon());
+//							sosValues.put("uname", mh.getUname());
+							sosValues.put("uname", "跌倒求救");
+							sosValues.put("sos_id", mh.getSosId());
+							sosValues.put("belongs", ServiceCore.getLoginId());
 							dbHelper.close();
 							dbHelper.addSOSMessage(sosValues);
 
-							SOSInfo sosInfo = new SOSInfo(sosId, mh.getLo(), mh.getLa(), mh.getDate(), mh.getUname(), mh.getCon());
+							SOSInfo sosInfo = new SOSInfo(sosId, mh.getLo(), mh.getLa(), mh.getDate(), mh.getUname(), mh.getCon(), mh.getSosId());
 
 							// msIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 							// msIntent.putExtra("type",
@@ -179,14 +202,14 @@ public class ServiceUpdateLocationProcess implements ServiceNetworkResultHandler
 							Intent SOSNotifiIntent = new Intent(sc, AccidentDisplayActivity.class);
 							SOSNotifiIntent.putExtra("type", AccidentDisplayActivity.ACCIDENT_TYPE_SOS);
 							SOSNotifiIntent.putExtra("accident_info", sosInfo);
-							PendingIntent pIntent = PendingIntent.getActivity(sc, 0, SOSNotifiIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+							PendingIntent pIntent = PendingIntent.getActivity(sc, mh.getSosId(), SOSNotifiIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 							NotificationManager mNotificationManager = (NotificationManager) sc.getSystemService(Context.NOTIFICATION_SERVICE);
 							NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(sc);
 							mBuilder.setContentTitle(sc.getText(R.string.servicecore_sosmsg_title)).setContentText(sosInfo.getContent())
-									.setContentIntent(pIntent).setFullScreenIntent(pIntent, true)
+									.setContentIntent(pIntent)
 									.setTicker(sc.getText(R.string.servicecore_sosmsg_title) + ":" + sosInfo.getContent())
 									.setWhen(System.currentTimeMillis()).setPriority(NotificationCompat.PRIORITY_DEFAULT).setAutoCancel(true)
-									.setOngoing(false).setDefaults(Notification.DEFAULT_VIBRATE).setSmallIcon(R.drawable.ic_launcher);
+									.setOngoing(false).setDefaults(Notification.DEFAULT_ALL).setSmallIcon(R.drawable.ic_launcher);
 							mNotificationManager.notify(sosId, mBuilder.build());
 
 						}
@@ -198,10 +221,11 @@ public class ServiceUpdateLocationProcess implements ServiceNetworkResultHandler
 					case MessageFrame.REQUEST_ATTENTION:
 						if (mf instanceof MessageAttention) {
 							MessageAttention mat = (MessageAttention) mf;
-							msIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+							msIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 							Cursor cursor = dbHelper.getSeniorInfo(new String[] { "nick", "name" }, "oid = ?", new String[] { mat.getOid() + "" });
+							Log.e("ServiceUpdateLocation", mat.toString() + "cursor count:" + cursor.getCount());
 							if (cursor.moveToNext()) {
-								msIntent.putExtra("type", WarningActivity.WARNING_TYPE_ACCIDENT_MESSAGE);
+								msIntent.putExtra("type", WarningActivity.WARNING_TYPE_REQUEST_ATTENTION);
 								msIntent.putExtra("msg", mat);
 								String nick = cursor.getString(cursor.getColumnIndex("nick"));
 								String name = cursor.getString(cursor.getColumnIndex("name"));
@@ -214,7 +238,39 @@ public class ServiceUpdateLocationProcess implements ServiceNetworkResultHandler
 									msIntent.putExtra("name", context.getText(R.string.unknown).toString());
 								}
 
-								context.startActivity(msIntent);
+//								context.startActivity(msIntent);
+								
+								StringBuffer contentText = new StringBuffer();
+								if (mat.getNick() != null && mat.getNick().length() > 0) {
+									contentText.append(mat.getNick());
+									contentText.append(",");
+
+								}
+
+								if (mat.getPhone() != null && mat.getPhone().length() > 0) {
+									contentText.append("电话号码:");
+									contentText.append(mat.getPhone());
+									contentText.append(",");
+								}
+
+								contentText.append(sc.getText(R.string.warning_attention_message_content));
+								contentText.append(msIntent.getStringExtra("name"));
+								contentText.append(sc.getText(R.string.warning_attention_message_content_agree));
+								
+								PendingIntent attPIntent = PendingIntent.getActivity(sc, 0, msIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+								NotificationManager mNotifiManager = (NotificationManager) sc.getSystemService(Context.NOTIFICATION_SERVICE);
+								NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(sc);
+								mBuilder.setContentTitle(sc.getText(R.string.warning_attention_request_title))
+										.setContentText(contentText)
+										.setContentIntent(attPIntent)
+										.setTicker(contentText)
+										.setWhen(System.currentTimeMillis())
+										.setPriority(NotificationCompat.PRIORITY_DEFAULT)
+										.setAutoCancel(true)
+										.setOngoing(false)
+										.setDefaults(Notification.DEFAULT_ALL)
+										.setSmallIcon(R.drawable.ic_launcher);
+								mNotifiManager.notify(0, mBuilder.build());
 							} else {
 								Log.e("ServiceUpdateLocationProcess.process", "无对应关注人" + mat.getOid());
 							}

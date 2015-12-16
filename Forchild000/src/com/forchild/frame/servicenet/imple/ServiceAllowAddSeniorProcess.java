@@ -43,7 +43,7 @@ public class ServiceAllowAddSeniorProcess implements ServiceNetworkResultHandler
 			switch (source.getReq()) {
 			case BaseProtocolFrame.RESPONSE_TYPE_OKAY:
 
-				Toast.makeText(context, context.getText(R.string.response_error_delete_senior_okay), Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, context.getText(R.string.response_error_allow_add_senior_okay), Toast.LENGTH_SHORT).show();
 
 				break;
 			case BaseProtocolFrame.RESPONSE_TYPE_NO_LOGIN:
@@ -61,7 +61,7 @@ public class ServiceAllowAddSeniorProcess implements ServiceNetworkResultHandler
 
 				break;
 			default:
-				Toast.makeText(context, context.getText(R.string.response_error_delete_fault), Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, context.getText(R.string.response_error_allow_add_senior_fault), Toast.LENGTH_SHORT).show();
 				break;
 			}
 		}

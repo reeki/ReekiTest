@@ -84,7 +84,7 @@ public class SeniorsInfoModifyActivity extends AliveBaseActivity {
 		codeEdit = (EditText) findViewById(R.id.regsenior_code_edit);
 		codeEdit.setEnabled(false);
 
-		nameEdit = (EditText) findViewById(R.id.regsenior_name_edit);
+		nameEdit = (EditText) findViewById(R.id.regsenior_username_edit);
 		nickEdit = (EditText) findViewById(R.id.regsenior_nick_edit);
 		heightEdit = (EditText) findViewById(R.id.regsenior_height_edit);
 		weightEdit = (EditText) findViewById(R.id.regsenior_weight_edit);

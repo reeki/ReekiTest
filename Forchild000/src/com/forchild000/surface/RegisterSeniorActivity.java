@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -52,8 +53,10 @@ public class RegisterSeniorActivity extends AliveBaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register_sensor_activity);
 
+//		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+		
 		codeEdit = (EditText) findViewById(R.id.regsenior_code_edit);
-		nameEdit = (EditText) findViewById(R.id.regsenior_name_edit);
+		nameEdit = (EditText) findViewById(R.id.regsenior_username_edit);
 		nickEdit = (EditText) findViewById(R.id.regsenior_nick_edit);
 		heightEdit = (EditText) findViewById(R.id.regsenior_height_edit);
 		weightEdit = (EditText) findViewById(R.id.regsenior_weight_edit);
@@ -266,40 +269,45 @@ public class RegisterSeniorActivity extends AliveBaseActivity {
 					height = Integer.parseInt(heightStr);
 				} catch (NumberFormatException e) {
 					e.printStackTrace();
-					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_height_error), Toast.LENGTH_SHORT).show();
-					return;
+//					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_height_error), Toast.LENGTH_SHORT).show();
+//					return;
 				}
 
 				try {
 					weight = Integer.parseInt(weightStr);
 				} catch (NumberFormatException e) {
 					e.printStackTrace();
-					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_weight_error), Toast.LENGTH_SHORT).show();
-					return;
+//					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_weight_error), Toast.LENGTH_SHORT).show();
+//					return;
 				}
 
 				// blood 是否合法的判断
-				if (blood == null) {
-					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_blood_error), Toast.LENGTH_SHORT).show();
-					return;
-				}
+//				if (blood == null) {
+//					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_blood_error), Toast.LENGTH_SHORT).show();
+//					return;
+//				}
 
 				// sex 是否合法及修改的判断
 				if (sex != 1 && sex != 2) {
-					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_sex_error), Toast.LENGTH_SHORT).show();
-					return;
+//					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_sex_error), Toast.LENGTH_SHORT).show();
+//					return;
+					sex = 1;
 				}
 
 				birth.set(Calendar.YEAR, birthDatePicker.getYear());
 				birth.set(Calendar.MONTH, birthDatePicker.getMonth());
 				birth.set(Calendar.DATE, birthDatePicker.getDayOfMonth());
 
-				pattern = Pattern.compile(SetupActivity.PATTERN_CARD_ID);
-				matcher = pattern.matcher(cardId);
-
-				if (!matcher.find() && cardId.length() != 15) {
-					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_card_error), Toast.LENGTH_SHORT).show();
-					return;
+//				pattern = Pattern.compile(SetupActivity.PATTERN_CARD_ID);
+//				matcher = pattern.matcher(cardId);
+//
+//				if (!matcher.find() && cardId.length() != 15) {
+//					Toast.makeText(RegisterSeniorActivity.this, getText(R.string.input_card_error), Toast.LENGTH_SHORT).show();
+//					return;
+//				}
+				
+				if(cardId.length() == 0) {
+					cardId = null;
 				}
 
 				if (code.length() != 6) {

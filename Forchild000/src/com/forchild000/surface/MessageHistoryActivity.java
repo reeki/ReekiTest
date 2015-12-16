@@ -51,8 +51,6 @@ public class MessageHistoryActivity extends AliveBaseActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-
-		StatesIntent.sendCloseState(this, ServiceCore.ACTIVITY_TYPE_MESSAGEHISTORY);
 	}
 
 	@Override
@@ -70,7 +68,6 @@ public class MessageHistoryActivity extends AliveBaseActivity {
 		message.close();
 		dbHelper.close();
 
-		StatesIntent.sendAliveState(this, ServiceCore.ACTIVITY_TYPE_MESSAGEHISTORY);
 	}
 
 }

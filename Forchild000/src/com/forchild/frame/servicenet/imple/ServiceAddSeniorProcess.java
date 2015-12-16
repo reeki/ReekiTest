@@ -8,8 +8,6 @@ import com.forchild.data.BaseProtocolFrame;
 import com.forchild.data.RequestAddSenior;
 import com.forchild.data.RequestRegisterSenior;
 import com.forchild.server.Preferences;
-import com.forchild000.surface.CommonSetupActivity;
-import com.forchild000.surface.LoginActivity;
 import com.forchild000.surface.R;
 
 public class ServiceAddSeniorProcess implements ServiceNetworkResultHandler {
@@ -44,7 +42,6 @@ public class ServiceAddSeniorProcess implements ServiceNetworkResultHandler {
 			if (source.isResponse()) {
 				switch (source.getReq()) {
 				case BaseProtocolFrame.RESPONSE_TYPE_OKAY:
-					Toast.makeText(context, context.getText(R.string.response_error_add_senior_okay), Toast.LENGTH_SHORT).show();
 					break;
 				// case BaseProtocolFrame.RESPONSE_TYPE_NO_LOGIN:
 				// Toast.makeText(context,
@@ -70,7 +67,7 @@ public class ServiceAddSeniorProcess implements ServiceNetworkResultHandler {
 					break;
 				}
 			} else {
-				switch(source.getReason()) {
+				switch (source.getReason()) {
 				case BaseProtocolFrame.REASON_NORMALITY:
 					break;
 				case BaseProtocolFrame.REASON_EXCEEDS_TASKNUMBER_LIMITED:

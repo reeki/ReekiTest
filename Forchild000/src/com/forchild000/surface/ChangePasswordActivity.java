@@ -19,27 +19,39 @@ import android.widget.Toast;
 
 import com.forchild.data.BaseConfiguration;
 import com.forchild.data.BaseProtocolFrame;
+import com.forchild.data.RequestChildPassword;
 import com.forchild.data.RequestRegisterChild;
 import com.forchild.data.RequestSendValidCode;
 import com.forchild.server.Preferences;
 import com.forchild.server.ServiceStates;
 
 public class ChangePasswordActivity extends AliveBaseActivity {
-	private EditText pwEdit, pwAgainEdit, verfEdit;
+	public static final int CHANGETYPE_NO_LOGIN = 0;
+	public static final int CHANGETYPE_LOGIN = 1;
+
+	private EditText pwEdit, pwAgainEdit, verfEdit, phoneEdit;
 	private Button sendVerfBtn, sureBtn;
 	private Handler btnClickableHandler, msgHandler;
 	private Timer btnTimer;
+	protected int type = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.change_password_activity);
 
+		type = getIntent().getIntExtra("type", 0);
+
+		phoneEdit = (EditText) findViewById(R.id.changepw_phone_edit);
 		pwEdit = (EditText) findViewById(R.id.changepw_pasword_edit);
 		pwAgainEdit = (EditText) findViewById(R.id.changepw_pasword_again_edit);
 		verfEdit = (EditText) findViewById(R.id.changepw_verification_edit);
 		sendVerfBtn = (Button) findViewById(R.id.changepw_sendverification_btn);
 		sureBtn = (Button) findViewById(R.id.changepw_sure_btn);
+
+		if (type == CHANGETYPE_LOGIN) {
+			phoneEdit.setVisibility(View.GONE);
+		}
 
 		sendVerfBtn.setOnClickListener(changePWButtonListener);
 		sureBtn.setOnClickListener(changePWButtonListener);
@@ -71,21 +83,28 @@ public class ChangePasswordActivity extends AliveBaseActivity {
 			case R.id.changepw_sure_btn:
 				String pw = pwEdit.getText().toString();
 				String pwA = pwAgainEdit.getText().toString();
+				String phoneStr = new String();
+				String verf = verfEdit.getText().toString();
+				
+				if(type == CHANGETYPE_LOGIN) {
+					phoneStr = preference.getLoginId();
+				} else if (type == CHANGETYPE_NO_LOGIN){
+					phoneStr = phoneEdit.getText().toString().trim();
+				}
 
 				if (!pw.equals(pwA)) {
 					Toast.makeText(ChangePasswordActivity.this, getText(R.string.reguser_password_different_error), Toast.LENGTH_SHORT).show();
 					return;
 				}
 
-				String verf = verfEdit.getText().toString();
-
-				// TODO
-				// Requestm rlc = new RequestLoginChild(phoneNumStr,
-				// passwordStr);
-				// rlc.addHandler(msgHandler);
-				// ServiceCore.addNetTask(rlc);
-
-				finish();
+				if (phoneStr != null && phoneStr.length() > 0) {
+					RequestChildPassword rcp = new RequestChildPassword(phoneStr, pw, verf);
+					rcp.addHandler(msgHandler);
+					ServiceCore.addNetTask(rcp);
+				} else {
+					Toast.makeText(ChangePasswordActivity.this, getText(R.string.changepw_nophone_error), Toast.LENGTH_SHORT).show();
+					return;
+				}
 				break;
 			default:
 				break;
@@ -99,9 +118,66 @@ public class ChangePasswordActivity extends AliveBaseActivity {
 		public boolean handleMessage(Message msg) {
 			switch (msg.what) {
 			case ServiceCore.NETWORK_RESPONSE:
-				break;
+				if (msg.obj instanceof RequestChildPassword) {
+					RequestChildPassword rcp = (RequestChildPassword) msg.obj;
+					if (rcp.isResponse()) {
+						switch (rcp.getReq()) {
+						case BaseProtocolFrame.RESPONSE_TYPE_OKAY:
+							Toast.makeText(ChangePasswordActivity.this, getText(R.string.changepw_response_success), Toast.LENGTH_SHORT).show();
+							finish();
+							break;
+						case 100:
+							Toast.makeText(ChangePasswordActivity.this, getText(R.string.changepw_response_valid_error), Toast.LENGTH_SHORT).show();
+							break;
+						case 101:
+							Toast.makeText(ChangePasswordActivity.this, getText(R.string.changepw_response_unavailablephone_error),
+									Toast.LENGTH_SHORT).show();
+							break;
+						}
+					} else {
+						switch (rcp.getReason()) {
+						case BaseProtocolFrame.REASON_NORMALITY:
+							Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_unknown_error), Toast.LENGTH_SHORT).show();
+							break;
+						case BaseProtocolFrame.REASON_EXCEEDS_TASKNUMBER_LIMITED:
+							Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_exceed_maxtask), Toast.LENGTH_SHORT).show();
+							break;
+						case BaseProtocolFrame.REASON_NO_RESPONSE:
+							Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_no_response), Toast.LENGTH_SHORT).show();
+							break;
+						case BaseProtocolFrame.REASON_LOGOUT:
+							Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_logout), Toast.LENGTH_SHORT).show();
+							break;
+						}
+					}
+
+				}
 			}
 
+			if (msg.obj instanceof RequestSendValidCode) {
+				RequestSendValidCode rsvc = (RequestSendValidCode) msg.obj;
+				if (rsvc.isResponse()) {
+					switch (rsvc.getReq()) {
+					case BaseProtocolFrame.RESPONSE_TYPE_OKAY:
+						break;
+					}
+				} else {
+					switch (rsvc.getReason()) {
+					case BaseProtocolFrame.REASON_NORMALITY:
+						Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_unknown_error), Toast.LENGTH_SHORT).show();
+						break;
+					case BaseProtocolFrame.REASON_EXCEEDS_TASKNUMBER_LIMITED:
+						Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_exceed_maxtask), Toast.LENGTH_SHORT).show();
+						break;
+					case BaseProtocolFrame.REASON_NO_RESPONSE:
+						Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_no_response), Toast.LENGTH_SHORT).show();
+						break;
+					case BaseProtocolFrame.REASON_LOGOUT:
+						Toast.makeText(ChangePasswordActivity.this, getText(R.string.noresponse_logout), Toast.LENGTH_SHORT).show();
+						break;
+					}
+				}
+			}
 			return true;
 		}
 

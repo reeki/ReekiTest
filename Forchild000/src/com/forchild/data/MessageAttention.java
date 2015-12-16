@@ -48,4 +48,11 @@ public class MessageAttention extends MessageFrame {
 	public int getFollowid() {
 		return this.followid;
 	}
+
+	@Override
+	public String toString() {
+		return "MessageAttention [phone=" + phone + ", nick=" + nick + ", followid=" + followid + ", type=" + type + ", date=" + date
+				+ ", lastShowTime=" + lastShowTime + ", state=" + state + ", from=" + from + ", uname=" + uname + ", loginId=" + loginId
+				+ ", isComMeg=" + isComMeg + ", con=" + con + ", userMsgType=" + userMsgType + ", oid=" + oid + "]";
+	}
 }

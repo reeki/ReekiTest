@@ -75,6 +75,7 @@
         </activity>
         <activity
             android:name=".AccidentDisplayActivity"
+            android:theme="@style/Mystyle"
             android:label="@string/accident_display_activity_lable" >
         </activity>
         <activity

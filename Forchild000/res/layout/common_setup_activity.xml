@@ -36,6 +36,14 @@
             android:layout_height="wrap_content"
             android:background="@color/white" />
 
+        <!-- 关于 -->
+
+        <com.forchild000.surface.SetupButton
+            android:id="@+id/common_about_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="30dip" />

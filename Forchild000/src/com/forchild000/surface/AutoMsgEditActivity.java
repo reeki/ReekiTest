@@ -126,6 +126,7 @@ public class AutoMsgEditActivity extends AliveBaseActivity {
 			break;
 		}
 
+		Log.e("AutoMsgEditActivity", siam.toString());
 	}
 
 	private OnClickListener autoMsgEditBtnListener = new OnClickListener() {
@@ -147,17 +148,6 @@ public class AutoMsgEditActivity extends AliveBaseActivity {
 			case R.id.automsgedit_sure_btn:
 				switch (type) {
 				case AutoMsgDisplayActivity.NEW_MESSAGE_ACTIVITY_REQUEST:
-					// int pos = userChoices.getSelectedItemPosition();
-					// if (pos < siList.size()) {
-					// siam = siList.get(pos);
-					// siam.setId(++nextAlarmId);
-					// } else {
-					// Toast.makeText(AutoMsgEditActivity.this,
-					// getText(R.string.automsgedit_user_choise_error),
-					// Toast.LENGTH_SHORT).show();
-					// finish();
-					// return;
-					// }
 					for (SeniorInfoAutoMessage seniorBuff : siList) {
 						if (seniorBuff.getOid() == oid) {
 							siam = seniorBuff;
@@ -195,7 +185,7 @@ public class AutoMsgEditActivity extends AliveBaseActivity {
 							break;
 						case MessageFrame.USERMESSAGETYPE_AUTO_ONEOFF_MESSAGE:
 						case MessageFrame.USERMESSAGETYPE_AUTO_MEDICAL_MESSAGE:
-							AutoMsgHelper.setOneOffMsgAlarm(AutoMsgEditActivity.this, siam.getId(), siam.getYear(), siam.getMinute(), siam.getDay(),
+							AutoMsgHelper.setOneOffMsgAlarm(AutoMsgEditActivity.this, siam.getId(), siam.getYear(), siam.getMonth(), siam.getDay(),
 									hour, minute);
 							break;
 						}
@@ -205,7 +195,7 @@ public class AutoMsgEditActivity extends AliveBaseActivity {
 					finish();
 					break;
 				case AutoMsgDisplayActivity.EDIT_MESSAGE_ACTIVITY_REQUEST:
-					switch (msgType) {
+					switch (siam.getType()) {
 					case MessageFrame.USERMESSAGETYPE_AUTO_CIRCLE_MESSAGE:
 						break;
 					case MessageFrame.USERMESSAGETYPE_AUTO_ONEOFF_MESSAGE:
@@ -221,21 +211,21 @@ public class AutoMsgEditActivity extends AliveBaseActivity {
 						}
 						break;
 					}
-					siam.setType(msgType);
 					siam.setHour(hour);
 					siam.setMinute(minute);
 					siam.setContent(content);
+					Log.e("AutoMsgEditActivity", siam.toString());
 					result = dbHelper.updateAutoMessage(siam);
 					if (result >= 0) {
 						AutoMsgHelper.cancelAutoMsgAlarm(AutoMsgEditActivity.this, siam.getId());
 						if (result >= 0) {
-							switch (msgType) {
+							switch (siam.getType()) {
 							case MessageFrame.USERMESSAGETYPE_AUTO_CIRCLE_MESSAGE:
 								AutoMsgHelper.setAutoMsgAlarm(AutoMsgEditActivity.this, siam.getId(), hour, minute);
 								break;
 							case MessageFrame.USERMESSAGETYPE_AUTO_ONEOFF_MESSAGE:
 							case MessageFrame.USERMESSAGETYPE_AUTO_MEDICAL_MESSAGE:
-								AutoMsgHelper.setOneOffMsgAlarm(AutoMsgEditActivity.this, siam.getId(), siam.getYear(), siam.getMinute(),
+								AutoMsgHelper.setOneOffMsgAlarm(AutoMsgEditActivity.this, siam.getId(), siam.getYear(), siam.getMonth(),
 										siam.getDay(), hour, minute);
 								break;
 							}

@@ -11,6 +11,7 @@ public class AutoMsgReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		Log.e("AutoMsgReceiver", "get auto message");
 		int id = intent.getIntExtra("id", -1);
 		if (id < 0) {
 			Log.e("AutoMsgReceiver", "id error: " + id);

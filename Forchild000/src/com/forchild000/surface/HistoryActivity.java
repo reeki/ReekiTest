@@ -344,10 +344,10 @@ public class HistoryActivity extends Activity {
 			int defaultSenior = preference.getDefaultSenior();
 			if (defaultSenior <= seniorsInfo.size() && defaultSenior != -1) {
 				choiseSpinner.setSelection(defaultSenior);
+				getOneState(seniorsInfo.get(defaultSenior).getOid());
 			} else if (defaultSenior == -1) {
 				choiseSpinner.setSelection(0);
 			}
-			getOneState(seniorsInfo.get(defaultSenior).getOid());
 
 			if (defaultSenior < seniorsInfo.size()) {
 				SeniorInfoSimple sis = seniorsInfo.get(defaultSenior);
@@ -376,12 +376,12 @@ public class HistoryActivity extends Activity {
 			RequestSeniorSport rss = new RequestSeniorSport(preference.getSid(), oid, calendar.getTimeInMillis());
 			rss.addHandler(msgHandler);
 			ServiceCore.addNetTask(rss);
-			// Log.e("History",
-			// calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH)
-			// + "-" + calendar.get(Calendar.DATE) + " "
-			// + calendar.get(Calendar.HOUR_OF_DAY) + ":" +
-			// calendar.get(Calendar.MINUTE) + ":" +
-			// calendar.get(Calendar.SECOND));
+			 Log.e("History",
+			 calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH)
+			 + "-" + calendar.get(Calendar.DATE) + " "
+			 + calendar.get(Calendar.HOUR_OF_DAY) + ":" +
+			 calendar.get(Calendar.MINUTE) + ":" +
+			 calendar.get(Calendar.SECOND));
 		}
 	}
 
@@ -395,12 +395,9 @@ public class HistoryActivity extends Activity {
 			RequestSeniorSport rss = new RequestSeniorSport(preference.getSid(), oid, calendar.getTimeInMillis());
 			rss.addHandler(msgHandler);
 			ServiceCore.addNetTask(rss);
-			// Log.e("History",
-			// calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH)
-			// + "-" + calendar.get(Calendar.DATE) + " "
-			// + calendar.get(Calendar.HOUR_OF_DAY) + ":" +
-			// calendar.get(Calendar.MINUTE) + ":" +
-			// calendar.get(Calendar.SECOND));
+			Log.e("History",
+					calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.DATE) + " "
+							+ calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));
 		}
 	}
 

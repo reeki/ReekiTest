@@ -268,7 +268,7 @@ public class ParentStates extends MapBaseActivity implements LocationSource {
 								leftText.setText(R.string.parent_state_stand);
 								break;
 							default:
-								leftText.setText(R.string.parent_state_unknown);
+								leftText.setText(R.string.parent_state_stand);
 								break;
 							}
 

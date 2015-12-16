@@ -47,7 +47,7 @@ public class AnalysisUpdateLocation implements BaseProtocolFrameProcess {
 
 	@Override
 	public int getType() {
-		return 0;
+		return BaseProtocolFrame.UPDATE_LOCATION;
 	}
 
 }

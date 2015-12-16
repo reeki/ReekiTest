@@ -29,9 +29,9 @@ public class DBFrame extends SQLiteOpenHelper {
 				+ "`content` varchar(512), `year` int, `month` int, `day` int, `hour` int, `minute` int, `sex` int default 1, `type` int default 0, "
 				+ "`login_id` varchar(11))");
 
-		db.execSQL("CREATE TABLE `FORCHILD000_ACCIENDT_MESSAGE` (`id` int, `belongs` varchar(11), `acc` int, `lo` double, `la` double, `date` long, `uname` varchar(32), address varchar(256))");
+		db.execSQL("CREATE TABLE `FORCHILD000_ACCIENDT_MESSAGE` (`id` int, `belongs` varchar(11), `acc` int, `lo` double, `la` double, `date` long, `uname` varchar(32), `address` varchar(256), `sos_id` int, `oid` int)");
 
-		db.execSQL("CREATE TABLE `FORCHILD000_SOS_MESSAGE` (`id` int, `belongs` varchar(11), `acc` int, `lo` double, `la` double, `date` long, `uname` varchar(32), 'content' varchar(512))");
+		db.execSQL("CREATE TABLE `FORCHILD000_SOS_MESSAGE` (`id` int, `belongs` varchar(11), `acc` int, `lo` double, `la` double, `date` long, `uname` varchar(32), 'content' varchar(512), `sos_id` int)");
 
 		db.execSQL("CREATE TABLE `FORCHILD000_COMMON_MESSAGE` (`id` INTEGER PRIMARY KEY autoincrement, `content` varchar(512))");
 

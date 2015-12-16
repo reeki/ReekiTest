@@ -184,9 +184,21 @@
     <string name="warning_sos_message_user_content">监护人留言：</string>
     <string name="warning_attention_message_title">请求关注</string>
     <string name="warning_attention_message_content">请求关注您的被关注人：</string>
+    <string name="warning_attention_message_content_agree">, 是否同意？</string>
     <string name="warning_logout_title">退出</string>
     <string name="warning_logout_text">注销不会删除历史资料，下次登录后可继续使用</string>
     <string name="warning_logout_sure_btn">退出登录</string>
+    <string name="warning_attention_request_title">申请关注</string>
+    
+    <!-- Accident Display Activity --> 
+	<string name="accident_display_acc_left_text">求助</string>
+	<string name="accident_display_acc_right_text">位置</string>
+	<string name="accident_display_sos_left_text"></string>
+	<string name="accident_display_sos_right_text">求助消息</string>
+	<string name="accident_display_no_content_error">求助消息</string>
+	<string name="accident_display_sendhelp_success">求助消息发送成功</string>
+	<string name="accident_display_sendhelp_unsuccess">求助消息发送失败</string>
+	<string name="accident_display_exceeds_timedelay_error">已超过求救信息时限</string>
 
     <!-- Fall down Warning -->
     <string name="fall_down_warning_title">跌倒报警</string>
@@ -204,7 +216,9 @@
 
     <!-- Add Seniors Activity -->
     <string name="addsenior_cardid_title">请输入被关注人身份证号</string>
+    <string name="addsenior_senior_phone_title">请输入被关注人手机号</string>
     <string name="addsenior_mainchild_phone_title">请输入第一监护人的手机号码</string>
+    <string name="addsenior_no_seniorphone_error">被关注人的手机号码不可为空</string>
 
     <!-- Reg Seniors Activity -->
     <string name="regsenior_name_title">请输入被注册人姓名</string>
@@ -254,6 +268,8 @@
     <string name="reguser_cardId_short_error">请正确输入身份证号码</string>
     <string name="reguser_nick_long_error">昵称过长，请输入16位以内的昵称</string>
     <string name="reguser_name_error">请正确输入姓名</string>
+    <string name="reguser_register_success">注册成功</string>
+    <string name="reg_pleases_input_labletext">以下为选填项，建议尽量填写，以保证紧急医疗卡的详细</string>
 
     <!-- Person Information Activity -->
     <string name="personinfo_name_title">姓名</string>
@@ -294,6 +310,11 @@
 
     <!-- Change Senior Phone Edit Activity -->
     <string name="changephone_phone_edit_text">请输入新手机号码</string>
+    <string name="changepw_phone_title">请输入手机号码</string>
+    <string name="changepw_nophone_error">手机号码不可为空</string>
+    <string name="changepw_response_success">修改成功</string>
+    <string name="changepw_response_unavailablephone_error">手机号码不存在</string>
+    <string name="changepw_response_valid_error">验证码错误</string>
 
     <!-- Network Response Text -->
     <string name="response_error_login_other_phone">账号在另一台手机上登录，如非本人，请注意账户安全</string>
@@ -335,6 +356,8 @@
     <string name="noresponse_exceed_maxtask">网络情况目前不太良好，请稍后重试</string>
     <string name="noresponse_no_response">服务器无响应，请稍后重试</string>
     <string name="noresponse_logout">用户已登出，任务取消</string>
+    <string name="response_error_allow_add_senior_okay">同意关注发送成功</string>
+    <string name="response_error_allow_add_senior_fault">同意关注发送失败</string>
 
     <!-- Register Seniors Activity -->
     <string name="input_name_long_error">姓名输入过长</string>
@@ -365,6 +388,7 @@
     <string name="automsgdsp_addcirclemsg_text">添加每日消息</string>
     <string name="automsgdsp_addoneoffmsg_text">添加一次性消息</string>
     <string name="automsgdsp_addmedicalmsg_text">添加服药提醒消息</string>
+    <string name="automsg_message_pasted">该消息已发送,无法再编辑</string>
     
     <!-- Service Core Service -->
 	<string name="networkexception_no_network">网络服务不可用，请检查网络连接</string>
